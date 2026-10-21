@@ -33,6 +33,7 @@
       <div style="display: flex; flex-direction: column; gap: 12px;">
         <span style="{{ etapaStyle }}">Etapa {{ etapa }} de {{ total }} · {{ etapaNome }}</span>
         <div role="progressbar" aria-label="Progresso do formulário" aria-valuemin="1" aria-valuemax="{{ total }}" aria-valuenow="{{ etapa }}" style="height: 4px; background: #E2E0D9; border-radius: 999px; overflow: hidden;"><div style="{{ barStyle }}"></div></div>
+      </div>
       </sc-if>
       <sc-if value="{{ compacto }}" hint-placeholder-val="{{ false }}">
         <div style="display: flex; flex-direction: column; gap: 10px;">
@@ -47,7 +48,6 @@
           <div role="progressbar" aria-label="Progresso do formulário" aria-valuemin="1" aria-valuemax="{{ total }}" aria-valuenow="{{ etapa }}" style="height: 6px; background: #E2E0D9; border-radius: 999px; overflow: hidden;"><div style="{{ barStyle }}"></div></div>
         </div>
       </sc-if>
-      </div>
 
       <div aria-hidden="true" style="position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden;">
         <label for="{{ px }}site">Não preencha este campo</label>
