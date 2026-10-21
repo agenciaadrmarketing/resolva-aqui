@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<section aria-labelledby="{{ hid }}" style="position: relative; overflow: hidden; background: #0A2E5D; color: #fff; padding: clamp(72px, 9vw, 128px) 0; font-family: 'General Sans', system-ui, sans-serif;">
+  <sc-if value="{{ temFoto }}" hint-placeholder-val="{{ false }}">
+    <div aria-hidden="true" style="position: absolute; inset: 0; z-index: 0; pointer-events: none;">
+      <img src="{{ foto }}" alt="" loading="lazy" decoding="async" style="position: absolute; inset: -12px; width: calc(100% + 24px); height: calc(100% + 24px); object-fit: cover; filter: blur(2px) saturate(.9);">
+      <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(10,46,93,.86), rgba(10,46,93,.93));"></div>
+    </div>
+  </sc-if>
+  <div style="position: relative; z-index: 1; max-width: 1280px; margin: 0 auto; padding: 0 var(--gut, 24px);">
+    <div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 24px 64px; flex-wrap: wrap; margin-bottom: clamp(24px, 4vw, 48px);">
+      <h2 id="{{ hid }}" style="font-size: clamp(2.1rem, 3.6vw, 3.2rem); font-weight: 600; line-height: 1.02; letter-spacing: -0.045em; margin: 0; max-width: 18ch;">{{ titulo }}</h2>
+      <p style="color: rgba(255,255,255,.84); font-size: 1.1rem; line-height: 1.6; margin: 0; max-width: 40ch;">{{ intro }}</p>
+    </div>
+    <ol ref="{{ olRef }}" style="position: relative; list-style: none; margin: 0; padding: 0 0 clamp(16px, 3vw, 40px);">
+      <span aria-hidden="true" style="position: absolute; left: 19px; top: 0; bottom: 0; width: 2px; background: linear-gradient(to bottom, transparent 0%, rgba(255,255,255,.22) 8%, rgba(255,255,255,.22) 92%, transparent 100%);"></span>
+      <span aria-hidden="true" ref="{{ fillRef }}" style="position: absolute; left: 19px; top: 0; bottom: 0; width: 2px; border-radius: 2px; background: linear-gradient(to bottom, transparent 0%, #F57C00 8%, #FF9433 100%); transform-origin: 50% 0; transform: scaleY(0);"></span>
+      <sc-for list="{{ itens }}" as="e" hint-placeholder-count="4">
+        <li style="{{ e.liStyle }}">
+          <div style="{{ e.stickyStyle }}">
+            <span aria-hidden="true" style="position: absolute; left: 0; top: 0; width: 40px; height: 40px; border-radius: 50%; background: #0A2E5D; display: flex; align-items: center; justify-content: center;"><span style="{{ e.dotStyle }}"></span></span>
+            <span style="{{ e.numStyle }}">{{ e.num }}</span>
+          </div>
+          <div style="{{ e.bodyStyle }}">
+            <span style="{{ e.numMob }}">{{ e.num }}</span>
+            <h3 style="font-size: clamp(1.4rem, 2.4vw, 2rem); font-weight: 600; letter-spacing: -0.035em; margin: 0 0 10px; line-height: 1.12;">{{ e.titulo }}</h3>
+            <p style="margin: 0; color: rgba(255,255,255,.84); font-size: clamp(1.02rem, 1.3vw, 1.12rem); line-height: 1.6; max-width: 44ch;">{{ e.desc }}</p>
+          </div>
+        </li>
+      </sc-for>
+    </ol>
+  </div>
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1280,&quot;height&quot;:900},&quot;titulo&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Como funciona&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;intro&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;hid&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;h-timeline&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;foto&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;etapas&quot;:{&quot;editor&quot;:null,&quot;tsType&quot;:&quot;[string, string][]&quot;}}">
+// Linha do tempo vertical: número fixo à esquerda (desktop) e trilho laranja que preenche conforme a rolagem.
+class Component extends DCLogic {
+  state = { w: typeof window === "undefined" ? 1280 : window.innerWidth };
+  olRef = React.createRef();
+  fillRef = React.createRef();
+  componentDidMount() {
+    this.reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    this.tick = () => {
+      this.raf = 0;
+      const ol = this.olRef.current, f = this.fillRef.current;
+      if (!ol || !f) return;
+      if (this.reduced) { f.style.transform = "scaleY(1)"; return; }
+      const r = ol.getBoundingClientRect(), vh = window.innerHeight;
+      const p = Math.max(0, Math.min(1, (vh * 0.6 - r.top) / Math.max(1, r.height - vh * 0.05)));
+      f.style.transform = "scaleY(" + p.toFixed(4) + ")";
+    };
+    this.onScroll = () => { if (!this.raf) this.raf = requestAnimationFrame(this.tick); };
+    window.addEventListener("scroll", this.onScroll, { passive: true, capture: true });
+    this.onResize = () => { if (window.innerWidth !== this.state.w) this.setState({ w: window.innerWidth }); this.onScroll(); };
+    window.addEventListener("resize", this.onResize, { passive: true });
+    this.onScroll();
+  }
+  componentWillUnmount() {
+    cancelAnimationFrame(this.raf);
+    window.removeEventListener("scroll", this.onScroll, { capture: true });
+    window.removeEventListener("resize", this.onResize);
+  }
+  renderVals() {
+    const wide = this.state.w >= 820, etapas = this.props.etapas ?? [], foto = String(this.props.foto ?? "").trim();
+    return {
+      hid: this.props.hid ?? "h-timeline", titulo: this.props.titulo ?? "", intro: this.props.intro ?? "",
+      temFoto: !!foto, foto, olRef: this.olRef, fillRef: this.fillRef,
+      itens: etapas.map(([titulo, desc], i) => {
+        const last = i === etapas.length - 1;
+        return {
+          num: String(i + 1).padStart(2, "0"), titulo, desc,
+          liStyle: "display: flex; align-items: flex-start; gap: " + (wide ? "40px" : "20px") + "; padding-top: " + (wide ? "clamp(56px, 8vw, 110px)" : "44px") + ";",
+          stickyStyle: "position: " + (wide ? "sticky; top: 160px;" : "relative;") + " flex: none; width: " + (wide ? "min(320px, 32%)" : "40px") + "; min-height: 40px; display: flex; align-items: center; padding-left: " + (wide ? "80px" : "0") + "; box-sizing: border-box;",
+          numStyle: wide ? "font-size: clamp(2.8rem, 4.6vw, 4rem); font-weight: 600; letter-spacing: -0.05em; line-height: 1; color: #F57C00;" : "display: none;",
+          numMob: wide ? "display: none;" : "display: block; font-size: 2rem; font-weight: 600; letter-spacing: -0.04em; line-height: 1; color: #F57C00; margin: 2px 0 12px;",
+          dotStyle: "width: 14px; height: 14px; border-radius: 50%; box-sizing: border-box; border: 2px solid #F57C00; background: " + (last ? "#F57C00" : "#0A2E5D") + ";",
+          bodyStyle: "flex: 1; min-width: 0; padding-top: " + (wide ? "8px" : "0") + ";"
+        };
+      })
+    };
+  }
+}
+</script>
+</body>
+</html>

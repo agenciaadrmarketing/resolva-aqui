@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet><script src="./ra-metal.js"></script></helmet>
+<div style="height: 84px;"></div>
+<header style="{{ headerStyle }}">
+  <div style="max-width: 1280px; margin: 0 auto; padding: 0 var(--gut, 24px); display: flex; align-items: center; gap: clamp(16px, 2.4vw, 32px); height: 100%; box-sizing: border-box; font-family: 'General Sans', system-ui, sans-serif;">
+    <a href="{{ homeHref }}" aria-label="Resolva Aqui, página inicial" style="display: flex; align-items: center; min-height: 48px; text-decoration: none; flex: none;">
+      <img src="assets/logo-resolva-aqui.webp" alt="" width="430" height="144" decoding="async" style="display: block; height: 48px; width: auto;">
+    </a>
+
+    <nav aria-label="Navegação principal" style="{{ navStyle }}">
+      <div style="position: relative;" onMouseEnter="{{ abrirDrop }}" onMouseLeave="{{ fecharDrop }}">
+        <button type="button" onClick="{{ toggleDrop }}" aria-expanded="{{ drop }}" aria-controls="ra-drop" style="{{ dropBtnStyle }}" style-hover="background: #F7F6F2;">
+          Serviços <span aria-hidden="true" style="{{ chevStyle }}">▾</span>
+        </button>
+        <sc-if value="{{ drop }}" hint-placeholder-val="{{ false }}">
+          <div id="ra-drop" style="position: absolute; top: 100%; left: -12px; padding-top: 10px; z-index: 60;">
+            <div style="width: 420px; background: #fff; border: 1px solid #E2E0D9; border-radius: 14px; box-shadow: 0 24px 48px -20px rgba(6,32,63,.28), 0 4px 10px -4px rgba(6,32,63,.08); padding: 8px;">
+              <ul style="list-style: none; margin: 0; padding: 0;">
+                <sc-for list="{{ frentes }}" as="f" hint-placeholder-count="4">
+                  <li>
+                    <a href="{{ f.href }}" onClick="{{ fecharTudo }}" onMouseEnter="{{ f.on }}" onMouseLeave="{{ f.off }}" onFocus="{{ f.on }}" onBlur="{{ f.off }}" style="{{ f.style }}">
+                      <span aria-hidden="true" style="{{ f.dot }}"></span>
+                      <span style="display: flex; flex-direction: column; gap: 3px;">
+                        <span style="{{ f.tit }}">{{ f.titulo }}</span>
+                        <span style="font-size: 14px; color: #5B6570; line-height: 1.45;">{{ f.desc }}</span>
+                      </span>
+                    </a>
+                  </li>
+                </sc-for>
+              </ul>
+              <a href="servicos.dc.html" onClick="{{ fecharTudo }}" onMouseEnter="{{ todosOn }}" onMouseLeave="{{ todosOff }}" onFocus="{{ todosOn }}" onBlur="{{ todosOff }}" style="{{ todosStyle }}">Ver todos os serviços <span aria-hidden="true" style="color: #E06A00;">→</span></a>
+            </div>
+          </div>
+        </sc-if>
+      </div>
+      <sc-for list="{{ itens }}" as="it" hint-placeholder-count="3">
+        <a href="{{ it.href }}" aria-current="{{ it.cur }}" style="{{ it.style }}" style-hover="background: #F7F6F2; color: #0A2E5D;">{{ it.label }}</a>
+      </sc-for>
+    </nav>
+
+    <a href="{{ ctaHref }}" data-track="cta_header" style="{{ ctaStyle }}" style-hover="color: #FFFFFF;"><span>Explicar minha demanda</span><span data-ar="" aria-hidden="true" style="width: 34px; height: 34px; border-radius: 50%; background: #0A2E5D; color: #fff; display: inline-flex; align-items: center; justify-content: center; font-size: 15px; flex: none; transition: transform 220ms cubic-bezier(.34,1.56,.64,1);">→</span></a>
+    <button type="button" onClick="{{ toggleMenu }}" aria-label="{{ menuLabel }}" aria-expanded="{{ menu }}" aria-controls="ra-menu" style="{{ burgerStyle }}">
+      <span style="{{ burgerTop }}"></span>
+      <span style="{{ burgerBottom }}"></span>
+    </button>
+  </div>
+</header>
+
+<sc-if value="{{ menu }}" hint-placeholder-val="{{ false }}">
+  <div onClick="{{ closeMenu }}" aria-hidden="true" style="position: fixed; inset: 0; z-index: 70; background: rgba(6,32,63,.55);"></div>
+  <div id="ra-menu" role="dialog" aria-modal="true" aria-label="Menu" style="position: fixed; top: 0; right: 0; bottom: 0; z-index: 71; width: min(86vw, 400px); background: #fff; box-shadow: -24px 0 48px -24px rgba(6,32,63,.4); display: flex; flex-direction: column; font-family: 'General Sans', system-ui, sans-serif; overflow-y: auto;">
+    <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 16px 20px; border-bottom: 1px solid #E2E0D9;">
+      <a href="index.dc.html" onClick="{{ closeMenu }}" aria-label="Resolva Aqui, página inicial" style="display: flex;"><img src="assets/logo-resolva-aqui.webp" alt="" width="430" height="144" style="display: block; height: 40px; width: auto;"></a>
+      <button type="button" onClick="{{ closeMenu }}" aria-label="Fechar menu" style="width: 48px; height: 48px; border: 1px solid #E2E0D9; border-radius: 10px; background: #fff; color: #0A2E5D; font-size: 22px; line-height: 1; cursor: pointer; font-family: inherit;">×</button>
+    </div>
+    <nav aria-label="Menu" style="display: flex; flex-direction: column; padding: 8px 20px;">
+      <button type="button" onClick="{{ toggleAcc }}" aria-expanded="{{ acc }}" aria-controls="ra-acc" style="display: flex; align-items: center; justify-content: space-between; width: 100%; min-height: 60px; padding: 0; background: none; border: 0; border-bottom: 1px solid #E2E0D9; cursor: pointer; font-family: inherit; font-size: 19px; font-weight: 600; color: #0A2E5D; text-align: left;">
+        Serviços <span aria-hidden="true" style="{{ accChev }}">▾</span>
+      </button>
+      <sc-if value="{{ acc }}" hint-placeholder-val="{{ false }}">
+        <ul id="ra-acc" style="list-style: none; margin: 0; padding: 6px 0 10px; border-bottom: 1px solid #E2E0D9;">
+          <sc-for list="{{ frentes }}" as="f" hint-placeholder-count="4">
+            <li>
+              <a href="{{ f.href }}" onClick="{{ closeMenu }}" style="display: flex; flex-direction: column; gap: 2px; padding: 12px 12px; border-radius: 10px; text-decoration: none;" style-hover="background: #EBF4F8;">
+                <span style="font-size: 16px; font-weight: 600; color: #0A2E5D;">{{ f.titulo }}</span>
+                <span style="font-size: 14px; color: #5B6570; line-height: 1.4;">{{ f.desc }}</span>
+              </a>
+            </li>
+          </sc-for>
+          <li><a href="servicos.dc.html" onClick="{{ closeMenu }}" style="display: flex; align-items: center; min-height: 44px; padding: 0 12px; font-size: 15px; font-weight: 600; color: #B85500; text-decoration: none;">Ver todos os serviços →</a></li>
+        </ul>
+      </sc-if>
+      <sc-for list="{{ itens }}" as="it" hint-placeholder-count="3">
+        <a href="{{ it.href }}" onClick="{{ closeMenu }}" aria-current="{{ it.cur }}" style="display: flex; align-items: center; min-height: 60px; border-bottom: 1px solid #E2E0D9; font-size: 19px; font-weight: 600; color: #0A2E5D; text-decoration: none;">{{ it.label }}</a>
+      </sc-for>
+    </nav>
+    <div style="margin-top: auto; padding: 20px; display: flex; flex-direction: column; gap: 10px; border-top: 1px solid #E2E0D9; background: #F7F6F2;">
+      <ra-metal><a href="{{ ctaHref }}" onClick="{{ closeMenu }}" data-track="cta_menu" style="background: #F57C00; color: #FFFFFF; font-weight: 600; font-size: 17px; min-height: 56px; border-radius: 999px; display: flex; align-items: center; justify-content: center; text-decoration: none; gap: 16px; padding: 0 8px 0 24px; font-weight: 600; letter-spacing: -0.01em; box-shadow: inset 0 -2px 0 rgba(6,32,63,.18);"><span>Explicar minha demanda</span><span data-ar="" aria-hidden="true" style="width: 40px; height: 40px; border-radius: 50%; background: #0A2E5D; color: #fff; display: inline-flex; align-items: center; justify-content: center; font-size: 18px; flex: none; transition: transform 220ms cubic-bezier(.34,1.56,.64,1);">→</span></a></ra-metal>
+      <sc-if value="{{ c.hasWhats }}" hint-placeholder-val="{{ false }}">
+        <a href="{{ c.whatsHref }}" target="_blank" rel="noopener" data-track="whatsapp_click" style="border: 1.5px solid #0A2E5D; color: #0A2E5D; font-weight: 600; font-size: 16px; min-height: 52px; border-radius: 10px; display: flex; align-items: center; justify-content: center; text-decoration: none;">Falar pelo WhatsApp</a>
+      </sc-if>
+    </div>
+  </div>
+</sc-if>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1280,&quot;height&quot;:520},&quot;atual&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;home&quot;,&quot;servicos&quot;,&quot;area&quot;,&quot;sobre&quot;,&quot;contato&quot;,&quot;&quot;],&quot;default&quot;:&quot;home&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;ctaHref&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;contato.dc.html#formulario&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
+const FRENTES = [
+  ["Apoio administrativo", "Documentos, arquivo e tarefas pontuais", "servicos.dc.html#apoio-administrativo"],
+  ["Apoio operacional", "Alguém no local para acompanhar e verificar", "servicos.dc.html#apoio-operacional"],
+  ["Busca e captação", "Fornecedores, profissionais e locais", "servicos.dc.html#busca-e-captacao"],
+  ["Eventos e apoio local", "Preparação, montagem e logística", "servicos.dc.html#eventos-e-apoio-local"]
+];
+const ITENS = [
+  ["area", "Área de atuação", "area-de-atuacao.dc.html"],
+  ["sobre", "Sobre", "sobre.dc.html"],
+  ["contato", "Contato", "contato.dc.html"]
+];
+class Component extends DCLogic {
+  state = { hov: -1, menu: false, drop: false, acc: false, scrolled: false, w: typeof window === "undefined" ? 1280 : window.innerWidth };
+  componentDidMount() {
+    try { document.documentElement.lang = "pt-BR"; } catch (e) {}
+    this.onScroll = () => { const y = window.scrollY || (document.scrollingElement || document.documentElement).scrollTop || 0; const s = y > 12; if (s !== this.state.scrolled) this.setState({ scrolled: s }); };
+    window.addEventListener("scroll", this.onScroll, { passive: true, capture: true });
+    this.onResize = () => { if (window.innerWidth !== this.state.w) this.setState({ w: window.innerWidth, menu: false, drop: false }); };
+    window.addEventListener("resize", this.onResize, { passive: true });
+    this.onKey = (e) => { if (e.key === "Escape" && (this.state.menu || this.state.drop)) this.setState({ menu: false, drop: false }); };
+    document.addEventListener("keydown", this.onKey);
+    this.onDoc = (e) => { if (this.state.drop && e.target.closest && !e.target.closest("#ra-drop") && !e.target.closest("[aria-controls='ra-drop']")) this.setState({ drop: false }); };
+    document.addEventListener("click", this.onDoc);
+    this.onScroll();
+    let n = 0; const espera = () => { if (window.raContato) return this.forceUpdate(); if (n++ < 30) this._t = setTimeout(espera, 100); }; espera();
+  }
+  componentDidUpdate(_, prev) { if (this.state.menu !== prev.menu) document.body.style.overflow = this.state.menu ? "hidden" : ""; }
+  componentWillUnmount() {
+    clearTimeout(this._t); clearTimeout(this._dt); document.body.style.overflow = "";
+    window.removeEventListener("scroll", this.onScroll, { capture: true }); window.removeEventListener("resize", this.onResize);
+    document.removeEventListener("keydown", this.onKey); document.removeEventListener("click", this.onDoc);
+  }
+  renderVals() {
+    const s = this.state, atual = this.props.atual ?? "", narrow = s.w < 1080, tight = s.w < 640;
+    const h = s.scrolled ? 72 : 84;
+    const pill = (on) => "display: inline-flex; align-items: center; gap: 6px; min-height: 44px; padding: 0 14px; border-radius: 8px; font-family: inherit; font-size: 15.5px; font-weight: 500; color: #0A2E5D; text-decoration: none; background: " + (on ? "#EBF4F8" : "transparent") + "; border: 0; cursor: pointer; transition: background 160ms ease;";
+    return {
+      c: window.raContato ? window.raContato() : { hasWhats: false },
+      homeHref: atual === "home" ? "#topo" : "index.dc.html",
+      ctaHref: this.props.ctaHref ?? "contato.dc.html#formulario",
+      frentes: FRENTES.map(([titulo, desc, href], i) => {
+        const on = s.hov === i;
+        return {
+          titulo, desc, href,
+          on: () => this.setState({ hov: i }), off: () => { if (this.state.hov === i) this.setState({ hov: -1 }); },
+          style: "display: flex; gap: 14px; padding: 14px; border-radius: 10px; text-decoration: none; transition: background-color 160ms ease, transform 200ms cubic-bezier(.2,.7,.3,1); background: " + (on ? "#EBF4F8" : "transparent") + "; transform: translateX(" + (on ? "4px" : "0") + ");",
+          dot: "width: 8px; height: 8px; margin-top: 7px; border-radius: 50%; flex: none; transition: transform 200ms ease, box-shadow 200ms ease; background: #F57C00; transform: scale(" + (on ? "1.25" : "1") + "); box-shadow: " + (on ? "0 0 0 4px rgba(245,124,0,.18)" : "none") + ";",
+          tit: "font-size: 15.5px; font-weight: 600; line-height: 1.3; transition: color 160ms ease; color: " + (on ? "#B85500" : "#0A2E5D") + ";"
+        };
+      }),
+      todosOn: () => this.setState({ hov: 99 }), todosOff: () => { if (this.state.hov === 99) this.setState({ hov: -1 }); },
+      todosStyle: "display: flex; justify-content: space-between; align-items: center; margin-top: 6px; padding: 14px; border-top: 1px solid #E2E0D9; border-radius: 0 0 10px 10px; font-size: 15px; font-weight: 600; text-decoration: none; transition: background-color 160ms ease, color 160ms ease; color: " + (s.hov === 99 ? "#B85500" : "#0A2E5D") + "; background: " + (s.hov === 99 ? "#F7F6F2" : "transparent") + ";",
+      itens: ITENS.map(([id, label, href]) => ({ label, href, cur: id === atual ? "page" : "false", style: pill(id === atual) })),
+      drop: s.drop, acc: s.acc,
+      dropBtnStyle: pill(s.drop || atual === "servicos"),
+      chevStyle: "font-size: 12px; color: #E06A00; display: inline-block; transition: transform 200ms ease; transform: rotate(" + (s.drop ? "180deg" : "0deg") + ");",
+      accChev: "font-size: 14px; color: #E06A00; display: inline-block; transition: transform 200ms ease; transform: rotate(" + (s.acc ? "180deg" : "0deg") + ");",
+      abrirDrop: () => { clearTimeout(this._dt); if (!this.state.drop) this.setState({ drop: true }); },
+      fecharDrop: () => { clearTimeout(this._dt); this._dt = setTimeout(() => this.setState({ drop: false, hov: -1 }), 160); },
+      toggleDrop: () => this.setState({ drop: !s.drop }),
+      toggleAcc: () => this.setState({ acc: !s.acc }),
+      fecharTudo: () => this.setState({ drop: false, menu: false }),
+      headerStyle: "position: fixed; top: 0; left: 0; right: 0; z-index: 50; background: " + (s.scrolled ? "rgba(255,255,255,.94)" : "#FFFFFF") + "; backdrop-filter: " + (s.scrolled ? "blur(12px)" : "none") + "; height: " + h + "px; border-bottom: 1px solid " + (s.scrolled || atual !== "home" ? "#E2E0D9" : "transparent") + "; box-shadow: " + (s.scrolled ? "0 8px 24px -18px rgba(6,32,63,.35)" : "none") + "; transition: height 220ms ease, border-color 220ms ease, background 220ms ease, box-shadow 220ms ease;",
+      navStyle: "display: " + (narrow ? "none" : "flex") + "; gap: 4px; align-items: center; margin-right: auto;",
+      ctaStyle: "display: " + (tight ? "none" : "inline-flex") + "; align-items: center; margin-left: " + (narrow ? "auto" : "0") + "; background: #F57C00; color: #FFFFFF; font-family: inherit; font-weight: 600; font-size: 15.5px; min-height: 48px; padding: 0 7px 0 20px; gap: 12px; border-radius: 999px; box-shadow: inset 0 -2px 0 rgba(6,32,63,.18); transition: background 180ms ease, transform 200ms ease; white-space: nowrap; text-decoration: none;",
+      burgerStyle: "display: " + (narrow ? "flex" : "none") + "; flex-direction: column; justify-content: center; gap: 6px; width: 48px; height: 48px; padding: 0 12px; margin-left: " + (tight ? "auto" : "0") + "; background: #fff; border: 1px solid #E2E0D9; border-radius: 10px; cursor: pointer; flex: none; box-sizing: border-box;",
+      burgerTop: "display: block; height: 2px; background: #0A2E5D; border-radius: 2px;",
+      burgerBottom: "display: block; height: 2px; background: #0A2E5D; border-radius: 2px; width: 70%; align-self: flex-end;",
+      menu: s.menu, menuLabel: "Abrir menu",
+      toggleMenu: () => this.setState({ menu: !s.menu, drop: false }),
+      closeMenu: () => this.setState({ menu: false, acc: false })
+    };
+  }
+}
+</script>
+</body>
+</html>

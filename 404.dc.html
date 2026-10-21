@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+<link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600&display=swap" rel="stylesheet">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#0A2E5D">
+<script src="./site-config.js"></script>
+<script src="./ra-motion.js"></script>
+<script src="./ra-metal.js"></script>
+<title>Página não encontrada | Resolva Aqui</title>
+<meta name="robots" content="noindex, follow">
+<style>
+  :root{--navy:#0A2E5D;--ink-2:#3B4651;--ink-3:#5B6570;--paper:#FFFFFF;--paper-2:#F7F6F2;--orange:#F57C00;--orange-hover:#FF9433;--orange-display:#E06A00;--orange-ink:#B85500;--line:#E2E0D9;--f:'General Sans',system-ui,sans-serif;--gut:clamp(20px,4vw,48px);}
+  body{margin:0;background:var(--paper);font-family:var(--f);color:#16212C;}
+  a{color:var(--orange-ink);text-decoration:none;}
+  a:hover{color:var(--navy);}
+  *:focus-visible{outline:2px solid var(--orange-display);outline-offset:3px;border-radius:2px;}
+</style>
+</helmet>
+
+<div style="background: var(--paper); font-size: 17.5px; line-height: 1.6;">
+  <dc-import name="SiteHeader" atual="" hint-size="100%,84px"></dc-import>
+  <main id="conteudo" style="background: var(--paper-2); min-height: calc(100svh - 84px); display: flex; align-items: center;">
+    <div style="max-width: 1280px; width: 100%; margin: 0 auto; padding: clamp(64px, 9vw, 128px) var(--gut); box-sizing: border-box;">
+      <div aria-hidden="true" style="display: flex; align-items: center; max-width: 220px; margin-bottom: 40px;">
+        <span style="width: 10px; height: 10px; border-radius: 50%; background: var(--navy);"></span>
+        <span style="flex: 1; border-top: 2px dotted var(--orange);"></span>
+        <span style="width: 14px; height: 14px; border-radius: 50%; border: 2px solid var(--orange); box-sizing: border-box;"></span>
+      </div>
+      <h1 style="color: var(--navy); font-size: clamp(2.5rem, 6vw, 5rem); font-weight: 600; line-height: 0.98; letter-spacing: -0.05em; margin: 0 0 24px; max-width: 14ch;">Esse endereço não leva a lugar nenhum.</h1>
+      <p style="margin: 0 0 40px; font-size: 1.16rem; color: var(--ink-2); max-width: 44ch;">A página pode ter mudado de lugar ou nunca ter existido. Escolha por onde continuar:</p>
+      <ul style="list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr)); gap: 0 32px; border-top: 1px solid var(--line); max-width: 960px;">
+        <li style="border-bottom: 1px solid var(--line);"><a href="index.dc.html" style="display: flex; justify-content: space-between; align-items: center; min-height: 64px; color: var(--navy); font-weight: 600; font-size: 1.1rem;" style-hover="color: var(--orange-ink);">Página inicial <span aria-hidden="true" style="color: var(--orange-display);">→</span></a></li>
+        <li style="border-bottom: 1px solid var(--line);"><a href="servicos.dc.html" style="display: flex; justify-content: space-between; align-items: center; min-height: 64px; color: var(--navy); font-weight: 600; font-size: 1.1rem;" style-hover="color: var(--orange-ink);">Serviços <span aria-hidden="true" style="color: var(--orange-display);">→</span></a></li>
+        <li style="border-bottom: 1px solid var(--line);"><a href="area-de-atuacao.dc.html" style="display: flex; justify-content: space-between; align-items: center; min-height: 64px; color: var(--navy); font-weight: 600; font-size: 1.1rem;" style-hover="color: var(--orange-ink);">Área de atuação <span aria-hidden="true" style="color: var(--orange-display);">→</span></a></li>
+        <li style="border-bottom: 1px solid var(--line);"><a href="contato.dc.html" style="display: flex; justify-content: space-between; align-items: center; min-height: 64px; color: var(--navy); font-weight: 600; font-size: 1.1rem;" style-hover="color: var(--orange-ink);">Explicar minha demanda <span aria-hidden="true" style="color: var(--orange-display);">→</span></a></li>
+      </ul>
+    </div>
+  </main>
+  <dc-import name="SiteFooter" hint-size="100%,560px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1280}}"></script>
+</body>
+</html>

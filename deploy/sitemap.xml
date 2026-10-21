@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Substituir DOMINIO. Só URLs canônicas e indexáveis. Adicionar páginas da Fase 2/3 apenas quando publicadas. -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://DOMINIO/</loc></url>
+  <url><loc>https://DOMINIO/servicos/</loc></url>
+  <url><loc>https://DOMINIO/area-de-atuacao/</loc></url>
+  <url><loc>https://DOMINIO/sobre/</loc></url>
+  <url><loc>https://DOMINIO/contato/</loc></url>
+  <url><loc>https://DOMINIO/politica-de-privacidade/</loc></url>
+</urlset>

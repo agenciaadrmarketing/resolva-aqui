@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+<link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600&display=swap" rel="stylesheet">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="site.webmanifest">
+<meta name="theme-color" content="#0A2E5D">
+<script src="./site-config.js"></script>
+<script src="./ra-motion.js"></script>
+<script src="./ra-metal.js"></script>
+<title>Contato | Explique sua demanda à Resolva Aqui</title>
+<meta name="description" content="Envie sua demanda à Resolva Aqui: o que precisa ser feito, onde e em que prazo. Avaliamos e retornamos pelo contato informado com o escopo e os próximos passos.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="/contato/">
+<meta property="og:title" content="Contato | Explique sua demanda à Resolva Aqui">
+<meta property="og:description" content="Conte o que precisa ser resolvido em Belém ou no Pará. Retornamos com o escopo e os próximos passos.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="Resolva Aqui">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Contato | Explique sua demanda à Resolva Aqui">
+<meta name="twitter:description" content="Conte o que precisa ser resolvido em Belém ou no Pará. Retornamos com o escopo e os próximos passos.">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Início","item":"/"},{"@type":"ListItem","position":2,"name":"Contato","item":"/contato/"}]}</script>
+<style>
+  :root{--navy:#0A2E5D;--navy-deep:#06203F;--navy-2:#2C4A73;--ink:#16212C;--ink-2:#3B4651;--ink-3:#5B6570;--paper:#FFFFFF;--paper-2:#F7F6F2;--sky:#EBF4F8;--orange:#F57C00;--orange-hover:#FF9433;--orange-display:#E06A00;--orange-ink:#B85500;--orange-soft:#FFF1E4;--line:#E2E0D9;--line-dark:rgba(255,255,255,.18);--f:'General Sans',system-ui,sans-serif;--r:10px;--r-s:6px;--pad:clamp(72px,9vw,128px);--gut:clamp(20px,4vw,48px);}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
+  body{margin:0;background:var(--paper);font-family:var(--f);color:var(--ink);}
+  a{color:var(--orange-ink);text-decoration:none;}
+  a:hover{color:var(--navy);}
+  *:focus-visible{outline:2px solid var(--orange-display);outline-offset:3px;border-radius:2px;}
+  a:hover > [data-ar], button:hover > [data-ar]{transform:translateX(4px);}
+  [data-ar]{display:inline-block;transition:transform 200ms ease;}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto;}*{transition-duration:.01ms !important;}}
+</style>
+</helmet>
+
+<div style="background: var(--paper); color: var(--ink); font-size: 17.5px; line-height: 1.6; letter-spacing: -0.003em;">
+  <a href="#conteudo" style="position: absolute; left: -9999px; top: 0;" style-focus="left: 12px; top: 96px; z-index: 60; background: var(--navy); color: #fff; padding: 12px 16px; border-radius: var(--r-s);">Ir para o conteúdo</a>
+  <dc-import name="SiteHeader" atual="contato" cta-href="#formulario" hint-size="100%,84px"></dc-import>
+
+  <main id="conteudo">
+    <section id="topo" aria-labelledby="h1" style="background: var(--paper-2); padding: clamp(32px, 5vw, 56px) 0 var(--pad);">
+      <div style="max-width: 1280px; margin: 0 auto; padding: 0 var(--gut);">
+        <nav aria-label="Trilha de navegação">
+          <ol style="list-style: none; margin: 0 0 clamp(40px, 6vw, 72px); padding: 0; display: flex; flex-wrap: wrap; gap: 8px; font-size: 15px; color: var(--ink-3);">
+            <li><a href="index.dc.html" style="color: var(--ink-2); text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--line);">Início</a></li>
+            <li aria-hidden="true">›</li>
+            <li aria-current="page" style="color: var(--navy); font-weight: 500;">Contato</li>
+          </ol>
+        </nav>
+
+        <div style="{{ grid }}">
+          <div style="{{ colIntro }}">
+            <h1 id="h1" style="color: var(--navy); font-size: clamp(2.4rem, 4.8vw, 4.2rem); font-weight: 600; line-height: 0.98; letter-spacing: -0.05em; margin: 0 0 24px; max-width: 14ch;">Explique o que precisa ser resolvido</h1>
+            <p style="margin: 0; font-size: clamp(1.1rem, 1.4vw, 1.22rem); color: var(--ink-2); max-width: 44ch;">Não precisa saber o nome do serviço. Conte a situação do jeito que ela é, e a gente organiza os próximos passos.</p>
+          </div>
+
+          <div style="{{ colForm }}">
+            <dc-import name="LeadForm" preset="{{ preset }}" origem="contato" hint-size="100%,760px"></dc-import>
+          </div>
+
+          <div style="{{ colGuia }}">
+
+            <div style="display: flex; flex-direction: column; gap: 40px;">
+              <div>
+                <h2 style="margin: 0 0 12px; font-size: 1.36rem; font-weight: 600; letter-spacing: -0.025em; color: var(--navy);">Como solicitar</h2>
+                <p style="margin: 0; color: var(--ink-2); font-size: 1.04rem; max-width: 46ch;">Pelo formulário desta página, em duas etapas: primeiro a demanda e onde ela acontece, depois como falar com você.</p>
+              </div>
+              <div>
+                <h2 style="margin: 0 0 12px; font-size: 1.36rem; font-weight: 600; letter-spacing: -0.025em; color: var(--navy);">O que ajuda a avaliar mais rápido</h2>
+                <ul style="list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); max-width: 48ch;">
+                  <li style="display: flex; gap: 14px; align-items: baseline; padding: 13px 0; border-bottom: 1px solid var(--line); color: var(--ink-2); font-size: 1.02rem;"><span aria-hidden="true" style="width: 12px; border-top: 2px dotted var(--orange); flex: none; transform: translateY(-4px);"></span><span><strong style="color: var(--navy); font-weight: 600;">O que precisa ser feito</strong>, com o máximo de contexto possível.</span></li>
+                  <li style="display: flex; gap: 14px; align-items: baseline; padding: 13px 0; border-bottom: 1px solid var(--line); color: var(--ink-2); font-size: 1.02rem;"><span aria-hidden="true" style="width: 12px; border-top: 2px dotted var(--orange); flex: none; transform: translateY(-4px);"></span><span><strong style="color: var(--navy); font-weight: 600;">Onde acontece</strong>: cidade e, se houver, endereço.</span></li>
+                  <li style="display: flex; gap: 14px; align-items: baseline; padding: 13px 0; border-bottom: 1px solid var(--line); color: var(--ink-2); font-size: 1.02rem;"><span aria-hidden="true" style="width: 12px; border-top: 2px dotted var(--orange); flex: none; transform: translateY(-4px);"></span><span><strong style="color: var(--navy); font-weight: 600;">O prazo</strong>, mesmo que aproximado.</span></li>
+                  <li style="display: flex; gap: 14px; align-items: baseline; padding: 13px 0; border-bottom: 1px solid var(--line); color: var(--ink-2); font-size: 1.02rem;"><span aria-hidden="true" style="width: 12px; border-top: 2px dotted var(--orange); flex: none; transform: translateY(-4px);"></span><span><strong style="color: var(--navy); font-weight: 600;">O que você espera receber</strong>: fotos, cotações, um relatório, alguém presente.</span></li>
+                </ul>
+              </div>
+              <div>
+                <h2 style="margin: 0 0 12px; font-size: 1.36rem; font-weight: 600; letter-spacing: -0.025em; color: var(--navy);">Que demandas analisamos</h2>
+                <p style="margin: 0; color: var(--ink-2); font-size: 1.04rem; max-width: 48ch;"><a href="servicos.dc.html#apoio-administrativo" style="color: var(--navy); text-decoration: underline; text-decoration-color: var(--orange); text-underline-offset: 4px;">Apoio administrativo</a>, <a href="servicos.dc.html#apoio-operacional" style="color: var(--navy); text-decoration: underline; text-decoration-color: var(--orange); text-underline-offset: 4px;">apoio operacional no local</a>, <a href="servicos.dc.html#busca-e-captacao" style="color: var(--navy); text-decoration: underline; text-decoration-color: var(--orange); text-underline-offset: 4px;">busca de fornecedores, profissionais e locais</a> e <a href="servicos.dc.html#eventos-e-apoio-local" style="color: var(--navy); text-decoration: underline; text-decoration-color: var(--orange); text-underline-offset: 4px;">apoio a eventos</a>, em <a href="area-de-atuacao.dc.html" style="color: var(--navy); text-decoration: underline; text-decoration-color: var(--orange); text-underline-offset: 4px;">Belém e no Pará</a>. Se a sua não se encaixa, envie mesmo assim.</p>
+              </div>
+              <div>
+                <h2 style="margin: 0 0 12px; font-size: 1.36rem; font-weight: 600; letter-spacing: -0.025em; color: var(--navy);">O que acontece depois do envio</h2>
+                <ol style="list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); max-width: 48ch;">
+                  <li style="display: grid; grid-template-columns: 40px minmax(0, 1fr); gap: 12px; padding: 13px 0; border-bottom: 1px solid var(--line); font-size: 1.02rem; color: var(--ink-2);"><span style="font-weight: 600; color: var(--orange-ink);">01</span><span>Lemos a demanda com o contexto que você enviou.</span></li>
+                  <li style="display: grid; grid-template-columns: 40px minmax(0, 1fr); gap: 12px; padding: 13px 0; border-bottom: 1px solid var(--line); font-size: 1.02rem; color: var(--ink-2);"><span style="font-weight: 600; color: var(--orange-ink);">02</span><span>Entramos em contato pelo WhatsApp ou e-mail informado, se precisar tirar dúvidas.</span></li>
+                  <li style="display: grid; grid-template-columns: 40px minmax(0, 1fr); gap: 12px; padding: 13px 0; border-bottom: 1px solid var(--line); font-size: 1.02rem; color: var(--ink-2);"><span style="font-weight: 600; color: var(--orange-ink);">03</span><span>Enviamos escopo, prazo e valor para sua aprovação.</span></li>
+                  <li style="display: grid; grid-template-columns: 40px minmax(0, 1fr); gap: 12px; padding: 13px 0; border-bottom: 1px solid var(--line); font-size: 1.02rem; color: var(--ink-2);"><span style="font-weight: 600; color: var(--orange-ink);">04</span><span>A execução só começa depois do seu de acordo.</span></li>
+                </ol>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <dc-import name="SiteFooter" hint-size="100%,560px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1280}}">
+class Component extends DCLogic {
+  state = { w: typeof window === "undefined" ? 1280 : window.innerWidth, preset: null };
+  componentDidMount() {
+    this.onResize = () => { if (window.innerWidth !== this.state.w) this.setState({ w: window.innerWidth }); };
+    window.addEventListener("resize", this.onResize, { passive: true });
+    // ?tipo=... vindo das páginas de serviço pré-seleciona o tipo de demanda.
+    try {
+      const tipo = new URL(location.href).searchParams.get("tipo");
+      if (tipo) this.setState({ preset: { tipo, n: 1 } });
+    } catch (e) {}
+  }
+  componentWillUnmount() { window.removeEventListener("resize", this.onResize); }
+  renderVals() {
+    const wide = this.state.w >= 1000;
+    return {
+      preset: this.state.preset,
+      // No mobile o formulário vem depois do H1 e antes das orientações; no desktop fica à direita, fixo ao rolar.
+      grid: wide
+        ? "display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); column-gap: clamp(48px, 6vw, 96px); row-gap: 56px; align-items: start;"
+        : "display: flex; flex-direction: column; gap: 40px;",
+      colIntro: wide ? "grid-column: 1; grid-row: 1;" : "",
+      colForm: wide ? "grid-column: 2; grid-row: 1 / span 2; position: sticky; top: 104px;" : "",
+      colGuia: wide ? "grid-column: 1; grid-row: 2;" : ""
+    };
+  }
+}
+</script>
+</body>
+</html>

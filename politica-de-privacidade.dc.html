@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+<link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600&display=swap" rel="stylesheet">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="site.webmanifest">
+<meta name="theme-color" content="#0A2E5D">
+<script src="./site-config.js"></script>
+<script src="./ra-motion.js"></script>
+<title>Política de privacidade | Resolva Aqui</title>
+<meta name="description" content="Como a Resolva Aqui trata os dados enviados pelo formulário do site: quais dados, para que são usados, onde ficam e como solicitar acesso ou exclusão.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="/politica-de-privacidade/">
+<meta property="og:title" content="Política de privacidade | Resolva Aqui">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="Resolva Aqui">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Início","item":"/"},{"@type":"ListItem","position":2,"name":"Política de privacidade","item":"/politica-de-privacidade/"}]}</script>
+<style>
+  :root{--navy:#0A2E5D;--navy-deep:#06203F;--ink:#16212C;--ink-2:#3B4651;--ink-3:#5B6570;--paper:#FFFFFF;--paper-2:#F7F6F2;--orange:#F57C00;--orange-hover:#FF9433;--orange-display:#E06A00;--orange-ink:#B85500;--line:#E2E0D9;--line-dark:rgba(255,255,255,.18);--f:'General Sans',system-ui,sans-serif;--r:10px;--r-s:6px;--gut:clamp(20px,4vw,48px);}
+  html{-webkit-text-size-adjust:100%;}
+  body{margin:0;background:var(--paper);font-family:var(--f);color:var(--ink);}
+  a{color:var(--orange-ink);text-decoration:underline;text-underline-offset:3px;}
+  a:hover{color:var(--navy);}
+  *:focus-visible{outline:2px solid var(--orange-display);outline-offset:3px;border-radius:2px;}
+</style>
+</helmet>
+
+<div style="background: var(--paper); color: var(--ink); font-size: 17.5px; line-height: 1.65; letter-spacing: -0.003em;">
+  <dc-import name="SiteHeader" atual="" hint-size="100%,84px"></dc-import>
+
+  <main id="conteudo">
+    <section id="topo" aria-labelledby="h1" style="background: var(--paper-2); border-bottom: 1px solid var(--line); padding: clamp(32px, 5vw, 56px) 0 clamp(48px, 6vw, 80px);">
+      <div style="max-width: 820px; margin: 0 auto; padding: 0 var(--gut);">
+        <nav aria-label="Trilha de navegação">
+          <ol style="list-style: none; margin: 0 0 40px; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; font-size: 15px; color: var(--ink-3);">
+            <li><a href="index.dc.html" style="color: var(--ink-2); text-decoration-color: var(--line);">Início</a></li>
+            <li aria-hidden="true">›</li>
+            <li aria-current="page" style="color: var(--navy); font-weight: 500;">Política de privacidade</li>
+          </ol>
+        </nav>
+        <h1 id="h1" style="color: var(--navy); font-size: clamp(2.3rem, 4.6vw, 3.8rem); font-weight: 600; line-height: 1; letter-spacing: -0.05em; margin: 0 0 20px;">Política de privacidade</h1>
+        <p style="margin: 0; font-size: 1.14rem; color: var(--ink-2); max-width: 56ch;">Este site coleta apenas os dados que você envia pelo formulário, para responder à sua demanda.</p>
+      </div>
+    </section>
+
+    <article style="max-width: 820px; margin: 0 auto; padding: clamp(48px, 6vw, 88px) var(--gut) clamp(72px, 9vw, 128px); display: flex; flex-direction: column; gap: 44px;">
+      <section aria-labelledby="p1">
+        <h2 id="p1" style="margin: 0 0 12px; font-size: 1.5rem; font-weight: 600; letter-spacing: -0.03em; color: var(--navy);">Quem trata os dados</h2>
+        <p style="margin: 0; color: var(--ink-2);">Resolva Aqui, empresa de apoio administrativo e operacional com base em Belém, Pará. Para qualquer assunto sobre seus dados, use o formulário de <a href="contato.dc.html">contato</a><sc-if value="{{ c.hasEmail }}" hint-placeholder-val="{{ false }}"> ou escreva para <a href="{{ c.emailHref }}">{{ c.email }}</a></sc-if>.</p>
+      </section>
+      <section aria-labelledby="p2">
+        <h2 id="p2" style="margin: 0 0 12px; font-size: 1.5rem; font-weight: 600; letter-spacing: -0.03em; color: var(--navy);">Quais dados coletamos</h2>
+        <ul style="margin: 0; padding-left: 1.2em; color: var(--ink-2); display: flex; flex-direction: column; gap: 6px;">
+          <li>Os dados da demanda: tipo, descrição, local, cidade e prazo.</li>
+          <li>Os dados de contato: nome, WhatsApp e, se você informar, e-mail e empresa.</li>
+          <li>Dados de navegação da visita: página de entrada, site de origem e parâmetros de campanha (UTM), quando existirem. Eles servem para entender como você chegou até aqui.</li>
+        </ul>
+      </section>
+      <section aria-labelledby="p3">
+        <h2 id="p3" style="margin: 0 0 12px; font-size: 1.5rem; font-weight: 600; letter-spacing: -0.03em; color: var(--navy);">Para que usamos</h2>
+        <p style="margin: 0; color: var(--ink-2);">Para avaliar a demanda, entrar em contato com você e enviar o escopo. Não vendemos nem compartilhamos seus dados para publicidade.</p>
+      </section>
+      <section aria-labelledby="p4">
+        <h2 id="p4" style="margin: 0 0 12px; font-size: 1.5rem; font-weight: 600; letter-spacing: -0.03em; color: var(--navy);">Onde os dados ficam</h2>
+        <p style="margin: 0; color: var(--ink-2);">Em uma planilha de acesso restrito à equipe da Resolva Aqui, hospedada no Google Workspace, e no e-mail de aviso enviado à responsável pelo atendimento. Guardamos os dados pelo tempo necessário para atender à demanda e cumprir obrigações legais.</p>
+      </section>
+      <section aria-labelledby="p5">
+        <h2 id="p5" style="margin: 0 0 12px; font-size: 1.5rem; font-weight: 600; letter-spacing: -0.03em; color: var(--navy);">Cookies e medição</h2>
+        <p style="margin: 0; color: var(--ink-2);">Este site não usa cookies de publicidade. Se ferramentas de medição de audiência forem adicionadas, esta página será atualizada antes.</p>
+      </section>
+      <section aria-labelledby="p6">
+        <h2 id="p6" style="margin: 0 0 12px; font-size: 1.5rem; font-weight: 600; letter-spacing: -0.03em; color: var(--navy);">Seus direitos</h2>
+        <p style="margin: 0; color: var(--ink-2);">Pela Lei Geral de Proteção de Dados (Lei 13.709/2018), você pode pedir para confirmar se tratamos seus dados, acessá-los, corrigi-los ou excluí-los, e pode revogar seu consentimento. Faça o pedido pelos canais acima.</p>
+      </section>
+    </article>
+  </main>
+
+  <dc-import name="SiteFooter" hint-size="100%,560px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1280}}">
+// [VALIDAR POLÍTICA] razão social, CNPJ, encarregado (DPO), prazo de retenção e ferramentas de medição antes de publicar.
+class Component extends DCLogic {
+  componentDidMount() {
+    let n = 0;
+    const espera = () => { if (window.raContato) return this.forceUpdate(); if (n++ < 30) this._t = setTimeout(espera, 100); };
+    espera();
+  }
+  componentWillUnmount() { clearTimeout(this._t); }
+  renderVals() { return { c: window.raContato ? window.raContato() : { hasEmail: false } }; }
+}
+</script>
+</body>
+</html>

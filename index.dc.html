@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+<link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="preload" as="image" href="assets/hero-belem-docas.avif" imagesrcset="assets/hero-belem-docas-960.avif 960w, assets/hero-belem-docas.avif 1672w" imagesizes="100vw" type="image/avif" fetchpriority="high">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="site.webmanifest">
+<link rel="canonical" href="/">
+<script src="./site-config.js"></script>
+<script src="./ra-motion.js"></script>
+<script src="./ra-metal.js"></script>
+<meta name="theme-color" content="#0A2E5D">
+<script src="./mapa-pa-geo.js"></script>
+<script src="./ra-warp.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+<title>Resolva Aqui | Apoio operacional e administrativo em Belém</title>
+<meta name="description" content="Apoio local para empresas em Belém e no Pará: visitas técnicas, fornecedores, documentos, eventos e demandas sob medida. Explique o que precisa resolver.">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Resolva Aqui | Apoio operacional e administrativo em Belém">
+<meta property="og:description" content="Apoio administrativo e operacional sob demanda para empresas em Belém e no Pará.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="Resolva Aqui">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Resolva Aqui | Apoio operacional e administrativo em Belém">
+<meta name="twitter:description" content="Apoio administrativo e operacional sob demanda para empresas em Belém e no Pará.">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Resolva Aqui","description":"Apoio administrativo e operacional sob demanda para empresas que precisam resolver algo em Belém e no Pará.","areaServed":[{"@type":"City","name":"Belém"},{"@type":"State","name":"Pará"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"Resolva Aqui","inLanguage":"pt-BR"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Como funciona a contratação?","acceptedAnswer":{"@type":"Answer","text":"Você descreve a demanda no formulário: o que precisa ser feito, onde e em que prazo. A Resolva Aqui avalia, combina o escopo e retorna pelo contato informado antes de qualquer execução."}},{"@type":"Question","name":"Vocês atendem demandas pontuais?","acceptedAnswer":{"@type":"Answer","text":"Sim. O escopo é definido demanda por demanda, sem pacote fechado obrigatório."}},{"@type":"Question","name":"Quais informações preciso enviar?","acceptedAnswer":{"@type":"Answer","text":"O que precisa ser feito, onde será realizado, o prazo desejado e o resultado esperado. Com esses quatro pontos já é possível avaliar."}},{"@type":"Question","name":"Quando o valor é definido?","acceptedAnswer":{"@type":"Answer","text":"Escopo, prazo e valor são combinados antes de qualquer execução, a partir do que você descreveu."}},{"@type":"Question","name":"Onde vocês atendem?","acceptedAnswer":{"@type":"Answer","text":"O atendimento presencial cobre Belém e a Região Metropolitana e o interior do Pará. Outros estados da região Norte são avaliados caso a caso."}},{"@type":"Question","name":"Minha empresa não é do Pará. Vocês atendem?","acceptedAnswer":{"@type":"Answer","text":"Sim. A Resolva Aqui funciona como apoio local para empresas que precisam de alguém em Belém ou no interior do Pará para acompanhar, verificar ou resolver algo no local."}},{"@type":"Question","name":"Preciso estar em Belém para contratar?","acceptedAnswer":{"@type":"Answer","text":"Não. A solicitação, o alinhamento do escopo e a devolutiva acontecem a distância. Só a execução é feita no local."}},{"@type":"Question","name":"Quais demandas podem ser remotas?","acceptedAnswer":{"@type":"Answer","text":"As que não exigem presença no local podem ser atendidas remotamente, para empresas de qualquer estado."}},{"@type":"Question","name":"Posso contratar mais de uma frente na mesma demanda?","acceptedAnswer":{"@type":"Answer","text":"Sim. É comum uma demanda passar por mais de uma frente, por exemplo buscar um local e depois acompanhar a montagem. O escopo é combinado como um todo."}},{"@type":"Question","name":"E se a minha demanda não se encaixa em nenhuma frente?","acceptedAnswer":{"@type":"Answer","text":"Descreva mesmo assim. As frentes são um ponto de partida; o que define o atendimento é o que precisa ser resolvido."}},{"@type":"Question","name":"O que eu recebo no final?","acceptedAnswer":{"@type":"Answer","text":"Uma devolutiva com o que foi feito, o que foi verificado e o que ficou pendente, no formato combinado no escopo."}}]}</script>
+<style>
+  :root{
+    --navy:#0A2E5D; --navy-deep:#06203F; --navy-2:#2C4A73;
+    --ink:#16212C; --ink-2:#3B4651; --ink-3:#5B6570;
+    --paper:#FFFFFF; --paper-2:#F7F6F2; --sky:#EBF4F8;
+    --orange:#F57C00; --orange-hover:#FF9433; --orange-display:#E06A00; --orange-ink:#B85500; --orange-soft:#FFF1E4;
+    --line:#E2E0D9; --line-dark:rgba(255,255,255,.18);
+    --f:'General Sans',system-ui,sans-serif;
+    --r:10px; --r-s:6px;
+    --pad:clamp(80px,10vw,144px); --gut:clamp(20px,4vw,48px);
+  }
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
+  body{margin:0;background:var(--paper);font-family:var(--f);color:var(--ink);}
+  a{color:var(--orange-ink);text-decoration:none;}
+  a:hover{color:var(--navy);}
+  *:focus-visible{outline:2px solid var(--orange-display);outline-offset:3px;border-radius:2px;}
+  section[id]{scroll-margin-top:96px;}
+  a:hover > [data-ar], button:hover > [data-ar]{transform:translateX(4px);}
+  [data-ar]{display:inline-block;transition:transform 200ms ease;}
+  @keyframes ra-sobe{from{transform:translateY(0);}to{transform:translateY(-50%);}}
+  [data-marquee]:hover{animation-play-state:paused;}
+  @media (prefers-reduced-motion:reduce){
+    [data-marquee]{animation:none !important;}
+    html{scroll-behavior:auto;}
+    *{transition-duration:.01ms !important;animation-duration:.01ms !important;}
+  }
+</style>
+</helmet>
+
+<div style="background: var(--paper); color: var(--ink); font-size: 17.5px; line-height: 1.6; letter-spacing: -0.003em;">
+
+  <a href="#conteudo" style="position: absolute; left: -9999px; top: 0;" style-focus="left: 12px; top: 96px; z-index: 60; background: var(--navy); color: #fff; padding: 12px 16px; border-radius: var(--r-s);">Ir para o conteúdo</a>
+
+  <dc-import name="SiteHeader" atual="home" cta-href="#contato" hint-size="100%,84px"></dc-import>
+
+  <main id="conteudo">
+
+    <section id="topo" aria-labelledby="h1" style="position: relative; overflow: hidden; background: var(--navy-deep); color: #fff; min-height: max(620px, calc(100svh - 84px)); display: flex;">
+      <div style="position: absolute; inset: 0;">
+        <picture>
+          <source srcSet="assets/hero-belem-docas-960.avif 960w, assets/hero-belem-docas.avif 1672w" sizes="100vw" type="image/avif">
+          <source srcSet="assets/hero-belem-docas-960.webp 960w, assets/hero-belem-docas.webp 1672w" sizes="100vw" type="image/webp">
+          <img data-hero-img="" src="assets/hero-belem-docas.webp" alt="Guindastes da Estação das Docas, na orla de Belém" width="1672" height="941" fetchpriority="high" decoding="sync" style="{{ heroImgStyle }}">
+        </picture>
+      </div>
+      
+      <div aria-hidden="true" style="{{ heroScrim }}"></div>
+
+      <div style="position: relative; width: 100%; max-width: 1280px; margin: 0 auto; padding: clamp(28px, 4vw, 56px) var(--gut) clamp(28px, 4vw, 44px); display: flex; flex-direction: column; justify-content: space-between; gap: 48px; box-sizing: border-box;">
+        <div style="display: flex; justify-content: space-between; align-items: center; gap: 12px 32px; flex-wrap: wrap; padding-bottom: 18px; border-bottom: 1px solid rgba(255,255,255,.22); font-size: 13.5px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;">
+          <span style="color: var(--orange);">Apoio local para empresas</span>
+          <span style="color: rgba(255,255,255,.86); display: inline-flex; align-items: center; gap: 10px;"><span aria-hidden="true" style="width: 8px; height: 8px; border-radius: 50%; background: var(--orange);"></span>Belém · Pará</span>
+        </div>
+
+        <div style="max-width: 820px;">
+          <h1 id="h1" style="color: #fff; font-size: clamp(2.9rem, 7.4vw, 6.8rem); font-weight: 600; line-height: 0.95; letter-spacing: -0.055em; margin: 0 0 32px;"><span style="display: block; overflow: hidden; padding-bottom: 0.06em; margin-bottom: -0.06em;"><span data-hl="" style="display: block;">Tem algo para</span></span><span style="display: block; overflow: hidden; padding-bottom: 0.06em; margin-bottom: -0.06em;"><span data-hl="" style="display: block;">resolver no Pará?</span></span><span style="display: block; overflow: hidden; padding-bottom: 0.06em; margin-bottom: -0.06em;"><span data-hl="" style="display: block; color: var(--orange);">Resolva Aqui.</span></span></h1>
+          <p style="font-size: clamp(1.12rem, 1.5vw, 1.32rem); line-height: 1.55; color: rgba(255,255,255,.9); margin: 0 0 36px; max-width: 44ch; text-wrap: pretty;">Sua empresa explica o que precisa. A gente organiza o que tem que ser feito, encontra as pessoas e os recursos certos e acompanha tudo até o retorno final.</p>
+          <div style="display: flex; gap: 12px 28px; flex-wrap: wrap; align-items: center;">
+            <ra-metal><a href="#contato" data-track="cta_hero" style="background: var(--orange); color: #FFFFFF; font-weight: 600; font-size: 17px; min-height: 56px; padding: 0 8px 0 28px; border-radius: 999px; display: inline-flex; align-items: center; gap: 16px; transition: background 180ms ease, transform 200ms cubic-bezier(.34,1.56,.64,1), box-shadow 200ms ease; font-weight: 600; letter-spacing: -0.01em; box-shadow: inset 0 -2px 0 rgba(6,32,63,.18);" style-hover="color: #FFFFFF; transform: translateY(-1px); box-shadow: 0 10px 20px -10px rgba(245,124,0,.75);" style-active="transform: translateY(1px) scale(.98); box-shadow: none;"><span>Explicar minha demanda</span><span data-ar="" aria-hidden="true" style="width: 40px; height: 40px; border-radius: 50%; background: #0A2E5D; color: #fff; display: inline-flex; align-items: center; justify-content: center; font-size: 18px; flex: none; transition: transform 220ms cubic-bezier(.34,1.56,.64,1);">→</span></a></ra-metal>
+            <a href="#como" style="color: #fff; font-weight: 600; font-size: 17px; min-height: 56px; display: inline-flex; align-items: center; text-decoration: underline; text-decoration-color: rgba(255,255,255,.45); text-decoration-thickness: 2px; text-underline-offset: 8px;" style-hover="text-decoration-color: var(--orange); color: #fff;">Ver como funciona</a>
+          </div>
+        </div>
+
+        <div style="display: flex; justify-content: flex-end;">
+          <span style="display: inline-flex; align-items: center; gap: 10px; font-size: 14px; color: rgba(255,255,255,.82);"><span aria-hidden="true" style="width: 20px; border-top: 1px solid rgba(255,255,255,.6);"></span>Estação das Docas, Belém</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="resolver" aria-labelledby="h-res" style="background: var(--paper); padding: var(--pad) 0;">
+      <div style="max-width: 1280px; margin: 0 auto; padding: 0 var(--gut);">
+        <div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 24px 64px; flex-wrap: wrap; margin-bottom: clamp(40px, 5vw, 64px);">
+          <h2 id="h-res" style="color: var(--navy); font-size: clamp(2.5rem, 4.4vw, 3.8rem); font-weight: 600; line-height: 1.0; letter-spacing: -0.045em; margin: 0;">Quando você precisa<br>de alguém aqui.</h2>
+          <div style="display: flex; flex-direction: column; gap: 10px; max-width: 40ch;">
+            <p style="color: var(--ink-2); font-size: 1.12rem; margin: 0;">Nem toda demanda exige montar uma equipe. Às vezes falta alguém no lugar certo para organizar, verificar ou acompanhar.</p>
+            <p style="color: var(--ink-3); font-size: 1rem; margin: 0;">Escolha a situação mais parecida com a sua. Ela já entra no formulário.</p>
+          </div>
+        </div>
+        <ul style="{{ cardsGrid }}">
+          <sc-for list="{{ demandas }}" as="d" hint-placeholder-count="8">
+            <li style="position: relative; min-height: 280px; border-radius: 24px; overflow: hidden; background: var(--navy);">
+              <ra-warp colors="{{ d.cores }}" shape="{{ d.shape }}" proportion="{{ d.proportion }}" softness="{{ d.softness }}" distortion="{{ d.distortion }}" swirl="{{ d.swirl }}" swirl-iterations="{{ d.iter }}" shape-scale="{{ d.scale }}" speed="0.5" aria-hidden="true" style="position: absolute; inset: 0;"></ra-warp>
+              <button type="button" onClick="{{ d.pick }}" style="{{ d.style }}" style-hover="background: rgba(6,32,63,.7);">
+                <span style="font-size: 14px; font-weight: 600; color: var(--orange-hover);">{{ d.grupo }}</span>
+                <span style="font-size: clamp(1.3rem, 1.7vw, 1.5rem); font-weight: 600; letter-spacing: -0.03em; line-height: 1.15; color: #fff;">{{ d.titulo }}</span>
+                <span style="font-size: 15.5px; line-height: 1.5; color: rgba(255,255,255,.9); flex: 1;">{{ d.texto }}</span>
+                <span style="display: inline-flex; align-items: center; gap: 8px; font-size: 15px; font-weight: 600; color: #fff;">Explicar esta demanda <span data-ar="" aria-hidden="true" style="color: var(--orange);">→</span></span>
+              </button>
+            </li>
+          </sc-for>
+        </ul>
+      </div>
+    </section>
+
+    <section id="como" aria-labelledby="h-como" style="position: relative; overflow: hidden; background: var(--navy); color: #fff; padding: var(--pad) 0;">
+      <div aria-hidden="true" style="position: absolute; inset: 0; z-index: 0; pointer-events: none;">
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Ver-o-peso_-_B%C3%A9lem_-_PA_-_Brasil.jpg?width=1280" srcSet="Special:FilePath/Ver-o-peso_-_B%C3%A9lem_-_PA_-_Brasil.jpg?width=640 640w, Special:FilePath/Ver-o-peso_-_B%C3%A9lem_-_PA_-_Brasil.jpg?width=960 960w, https://commons.wikimedia.org/wiki/Special:FilePath/Ver-o-peso_-_B%C3%A9lem_-_PA_-_Brasil.jpg?width=1280 1280w, https://commons.wikimedia.org/wiki/Special:FilePath/Ver-o-peso_-_B%C3%A9lem_-_PA_-_Brasil.jpg?width=1920 1920w, https://commons.wikimedia.org/wiki/Special:FilePath/Ver-o-peso_-_B%C3%A9lem_-_PA_-_Brasil.jpg?width=2560 2560w" sizes="100vw" alt="" width="4629" height="1628" loading="lazy" decoding="async" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 50%;">
+        <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(10,46,93,0.86) 0%, rgba(10,46,93,0.9199999999999999) 100%);"></div>
+      </div>
+      <p style="position: absolute; right: 12px; bottom: 10px; z-index: 2; margin: 0; font-size: 11.5px; line-height: 1.4; color: rgba(255,255,255,.75);">Ver-o-Peso. Foto: Marcos Eduardo de Sousa, CC BY-SA 4.0 · <a href="https://commons.wikimedia.org/wiki/File:Ver-o-peso_-_B%C3%A9lem_-_PA_-_Brasil.jpg" target="_blank" rel="noopener" style="color: rgba(255,255,255,.9); text-decoration: underline;">Wikimedia Commons</a></p>
+      <div style="position: relative; z-index: 1; max-width: 1280px; margin: 0 auto; padding: 0 var(--gut);">
+        <div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 24px 64px; flex-wrap: wrap; margin-bottom: clamp(24px, 4vw, 48px);">
+          <h2 id="h-como" style="font-size: clamp(2.5rem, 4.4vw, 3.8rem); font-weight: 600; line-height: 1.0; letter-spacing: -0.045em; margin: 0;">Da demanda<br>ao retorno</h2>
+          <p style="color: rgba(255,255,255,.8); font-size: 1.12rem; margin: 0; max-width: 38ch;">Quatro etapas e um ponto de contato. O escopo é combinado antes de começar.</p>
+        </div>
+        <ol data-timeline="" style="position: relative; list-style: none; margin: 0; padding: 0 0 clamp(24px, 4vw, 48px);">
+          <span aria-hidden="true" style="position: absolute; left: 19px; top: 0; bottom: 0; width: 2px; background: linear-gradient(to bottom, transparent 0%, rgba(255,255,255,.22) 8%, rgba(255,255,255,.22) 92%, transparent 100%);"></span>
+          <span aria-hidden="true" data-timeline-fill="" style="position: absolute; left: 19px; top: 0; bottom: 0; width: 2px; border-radius: 2px; background: linear-gradient(to bottom, transparent 0%, var(--orange) 8%, var(--orange-hover) 100%); transform-origin: 50% 0;"></span>
+          <sc-for list="{{ etapas }}" as="e" hint-placeholder-count="4">
+            <li style="{{ e.liStyle }}">
+              <div style="{{ e.stickyStyle }}">
+                <span aria-hidden="true" style="position: absolute; left: 0; top: 0; width: 40px; height: 40px; border-radius: 50%; background: var(--navy); display: flex; align-items: center; justify-content: center;"><span style="{{ e.dotStyle }}"></span></span>
+                <span style="{{ e.numStyle }}">{{ e.num }}</span>
+              </div>
+              <div style="{{ e.bodyStyle }}">
+                <span style="{{ e.numMob }}">{{ e.num }}</span>
+                <h3 style="font-size: clamp(1.5rem, 2.6vw, 2.2rem); font-weight: 600; letter-spacing: -0.035em; margin: 0 0 12px; line-height: 1.1;">{{ e.titulo }}</h3>
+                <p style="margin: 0; color: rgba(255,255,255,.82); font-size: clamp(1.04rem, 1.3vw, 1.16rem); max-width: 44ch;">{{ e.desc }}</p>
+              </div>
+            </li>
+          </sc-for>
+        </ol>
+      </div>
+    </section>
+
+    <section id="servicos" aria-labelledby="h-serv" style="padding: var(--pad) 0;">
+      <div style="max-width: 1280px; margin: 0 auto; padding: 0 var(--gut);">
+        <div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 24px 64px; flex-wrap: wrap; margin-bottom: clamp(48px, 6vw, 80px);">
+          <h2 id="h-serv" style="color: var(--navy); font-size: clamp(2.5rem, 4.4vw, 3.8rem); font-weight: 600; line-height: 1.0; letter-spacing: -0.045em; margin: 0;">Serviços para o que<br>trava sua rotina</h2>
+          <div style="display: flex; flex-direction: column; gap: 14px; max-width: 38ch;"><p style="color: var(--ink-2); font-size: 1.12rem; margin: 0;">Cada demanda tem escopo próprio. Os serviços abaixo são o ponto de partida, não um pacote fechado.</p><a href="servicos.dc.html" style="align-self: flex-start; color: var(--navy); font-weight: 600; font-size: 16px; display: inline-flex; align-items: center; gap: 10px; min-height: 44px; text-decoration: underline; text-decoration-color: var(--orange); text-decoration-thickness: 2px; text-underline-offset: 6px;" style-hover="color: var(--navy);">Ver os serviços em detalhe <span data-ar="" aria-hidden="true" style="color: var(--orange-display);">→</span></a></div>
+        </div>
+
+        <sc-if value="{{ servicosAccordion }}" hint-placeholder-val="{{ false }}">
+          <div style="border-top: 2px solid var(--navy);">
+            <sc-for list="{{ grupos }}" as="g" hint-placeholder-count="4">
+              <div style="border-bottom: 1px solid var(--line);">
+                <h3 style="margin: 0; font: inherit;">
+                  <button type="button" onClick="{{ g.toggle }}" aria-expanded="{{ g.active }}" style="{{ g.accStyle }}">
+                    <span style="flex: 1; text-align: left;">{{ g.nome }}</span>
+                    <span aria-hidden="true" style="{{ g.iconStyle }}">+</span>
+                  </button>
+                </h3>
+                <sc-if value="{{ g.active }}" hint-placeholder-val="{{ false }}">
+                  <div style="padding: 0 0 28px; display: flex; flex-direction: column; gap: 16px;">
+                    <p style="margin: 0; font-size: 1.08rem; color: var(--ink-2);">{{ g.desc }}</p>
+                    <ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px;">
+                      <sc-for list="{{ g.itens }}" as="i" hint-placeholder-count="3">
+                        <li style="display: flex; gap: 14px; align-items: center; font-size: 1.04rem; font-weight: 500; color: var(--navy);"><span aria-hidden="true" style="width: 14px; border-top: 2px dotted var(--orange); flex: none;"></span>{{ i }}</li>
+                      </sc-for>
+                    </ul>
+                    <a href="#contato" style="align-self: flex-start; color: var(--navy); font-weight: 600; font-size: 16px; display: inline-flex; align-items: center; gap: 10px; min-height: 48px;">Explicar minha demanda <span data-ar="" aria-hidden="true" style="color: var(--orange-display);">→</span></a>
+                  </div>
+                </sc-if>
+              </div>
+            </sc-for>
+          </div>
+        </sc-if>
+
+        <div style="{{ servicosSplit }}">
+          <div role="tablist" aria-label="Frentes de serviço" style="border-top: 2px solid var(--navy);">
+            <sc-for list="{{ grupos }}" as="g" hint-placeholder-count="4">
+              <button type="button" role="tab" id="{{ g.tabId }}" onClick="{{ g.pick }}" aria-selected="{{ g.active }}" aria-controls="ra-serv-painel" style="{{ g.style }}" style-hover="color: var(--navy);">
+                <span style="flex: 1; text-align: left;">{{ g.nome }}</span>
+                <span aria-hidden="true" style="{{ g.markStyle }}">→</span>
+              </button>
+            </sc-for>
+          </div>
+          <div id="ra-serv-painel" role="tabpanel" aria-labelledby="{{ grupoAtivo.tabId }}" style="{{ panelStyle }}">
+            <h3 style="margin: 0; font-size: clamp(1.5rem, 2.2vw, 1.95rem); font-weight: 500; letter-spacing: -0.035em; line-height: 1.22; color: var(--navy); max-width: 28ch;">{{ grupoAtivo.desc }}</h3>
+            <ul style="list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(240px, 100%), 1fr)); column-gap: 32px; border-top: 1px solid var(--line);">
+              <sc-for list="{{ grupoAtivo.itens }}" as="i" hint-placeholder-count="3">
+                <li style="display: flex; gap: 14px; align-items: center; padding: 18px 0; border-bottom: 1px solid var(--line); font-size: 1.1rem; font-weight: 500; color: var(--navy);"><span aria-hidden="true" style="width: 16px; border-top: 2px dotted var(--orange); flex: none;"></span>{{ i }}</li>
+              </sc-for>
+            </ul>
+            <a href="#contato" style="align-self: flex-start; color: var(--navy); font-weight: 600; font-size: 17px; display: inline-flex; align-items: center; gap: 12px; min-height: 52px; text-decoration: underline; text-decoration-color: var(--orange); text-decoration-thickness: 2px; text-underline-offset: 7px;" style-hover="color: var(--navy);">Explicar minha demanda <span data-ar="" aria-hidden="true" style="color: var(--orange-display);">→</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="atuacao" aria-labelledby="h-atu" style="position: relative; overflow: hidden; background: var(--navy); color: #fff; padding: var(--pad) 0;">
+      <div aria-hidden="true" style="position: absolute; inset: 0; z-index: 0; pointer-events: none;">
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Forte_do_Pres%C3%A9pio.jpg?width=1280" srcSet="Special:FilePath/Forte_do_Pres%C3%A9pio.jpg?width=640 640w, Special:FilePath/Forte_do_Pres%C3%A9pio.jpg?width=960 960w, https://commons.wikimedia.org/wiki/Special:FilePath/Forte_do_Pres%C3%A9pio.jpg?width=1280 1280w, https://commons.wikimedia.org/wiki/Special:FilePath/Forte_do_Pres%C3%A9pio.jpg?width=1920 1920w, https://commons.wikimedia.org/wiki/Special:FilePath/Forte_do_Pres%C3%A9pio.jpg?width=2560 2560w" sizes="100vw" alt="" width="10127" height="1466" loading="lazy" decoding="async" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 50%;">
+        <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(10,46,93,.84) 0%, rgba(10,46,93,.92) 100%);"></div>
+      </div>
+      <p style="position: absolute; right: 12px; bottom: 10px; z-index: 2; margin: 0; font-size: 11.5px; line-height: 1.4; color: rgba(255,255,255,.75);">Forte do Presépio. Foto: Vsolymossy, domínio público · <a href="https://commons.wikimedia.org/wiki/File:Forte_do_Pres%C3%A9pio.jpg" target="_blank" rel="noopener" style="color: rgba(255,255,255,.9); text-decoration: underline;">Wikimedia Commons</a></p>
+      <div style="position: relative; z-index: 1; max-width: 1280px; margin: 0 auto; padding: 0 var(--gut);">
+        <div style="{{ atuGrid }}">
+          <div>
+            <h2 id="h-atu" style="color: #fff; font-size: clamp(2.5rem, 4.4vw, 3.8rem); font-weight: 600; line-height: 1.0; letter-spacing: -0.045em; margin: 0 0 28px;">Alguém no local, quando o local importa</h2>
+            <p style="color: rgba(255,255,255,.84); font-size: 1.12rem; margin: 0 0 18px; max-width: 40ch;">Quando sua empresa precisa resolver algo em Belém ou no interior do Pará, não precisa começar do zero. Muita demanda só avança com alguém fisicamente no lugar: conferir um espaço, acompanhar uma montagem, verificar o que foi entregue.</p>
+            <p style="color: rgba(255,255,255,.84); font-size: 1.12rem; margin: 0; max-width: 40ch;">O que não exige presença pode ser atendido remotamente.</p>
+            <dl style="margin: 36px 0 0; border-top: 1px solid var(--line-dark); max-width: 46ch;">
+              <div style="padding: 16px 0; border-bottom: 1px solid var(--line-dark);"><dt style="font-size: 1.1rem; font-weight: 600; letter-spacing: -0.02em; color: #fff;">Belém e Região Metropolitana</dt><dd style="margin: 4px 0 0; font-size: 15.5px; color: rgba(255,255,255,.84);">Base do atendimento presencial.</dd></div>
+              <div style="padding: 16px 0; border-bottom: 1px solid var(--line-dark);"><dt style="font-size: 1.1rem; font-weight: 600; letter-spacing: -0.02em; color: #fff;">Interior do Pará</dt><dd style="margin: 4px 0 0; font-size: 15.5px; color: rgba(255,255,255,.84);">Deslocamento conforme a demanda.</dd></div>
+              <div style="padding: 16px 0; border-bottom: 1px solid var(--line-dark);"><dt style="font-size: 1.1rem; font-weight: 600; letter-spacing: -0.02em; color: #fff;">Outros estados do Norte</dt><dd style="margin: 4px 0 0; font-size: 15.5px; color: rgba(255,255,255,.84);">Avaliado caso a caso.</dd></div>
+              <div style="padding: 16px 0; border-bottom: 1px solid var(--line-dark);"><dt style="font-size: 1.1rem; font-weight: 600; letter-spacing: -0.02em; color: #fff;">Remoto</dt><dd style="margin: 4px 0 0; font-size: 15.5px; color: rgba(255,255,255,.84);">Qualquer estado, quando não exige presença.</dd></div>
+            </dl>
+            <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 12px 28px; margin-top: 32px;"><ra-metal><a href="#contato" style="display: inline-flex; align-items: center; gap: 16px; min-height: 52px; padding: 0 8px 0 22px; border-radius: 999px; background: var(--orange); color: #FFFFFF; font-size: 17px; font-weight: 600; transition: background 180ms ease, transform 200ms cubic-bezier(.34,1.56,.64,1), box-shadow 200ms ease; font-weight: 600; letter-spacing: -0.01em; box-shadow: inset 0 -2px 0 rgba(6,32,63,.18);" style-hover="color: #FFFFFF; transform: translateY(-1px); box-shadow: 0 10px 20px -10px rgba(245,124,0,.75);" style-active="transform: translateY(1px) scale(.98); box-shadow: none;"><span>Explicar minha demanda</span><span data-ar="" aria-hidden="true" style="width: 36px; height: 36px; border-radius: 50%; background: #0A2E5D; color: #fff; display: inline-flex; align-items: center; justify-content: center; font-size: 16px; flex: none; transition: transform 220ms cubic-bezier(.34,1.56,.64,1);">→</span></a></ra-metal><a href="area-de-atuacao.dc.html" style="color: #fff; font-weight: 600; font-size: 16px; min-height: 44px; display: inline-flex; align-items: center; text-decoration: underline; text-decoration-color: var(--orange); text-decoration-thickness: 2px; text-underline-offset: 6px;" style-hover="color: #fff;">Como funciona o atendimento fora de Belém</a></div>
+          </div>
+
+          <div style="display: flex; justify-content: center; align-items: center; align-self: center;">
+            <div style="width: min(720px, 100%);">
+              <x-import component-from-global-scope="mapa-pa" tema="escuro" from="./mapa-pa.js" style="display: block; width: 100%;" hint-size="100%,460px"></x-import>
+              <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 28px; margin-top: 16px; font-size: 14px; font-weight: 500; color: #fff;">
+                <span style="display: flex; align-items: center; gap: 10px;"><span aria-hidden="true" style="width: 12px; height: 12px; border-radius: 50%; background: var(--orange); border: 2px solid var(--navy); box-shadow: 0 0 0 1px var(--orange);"></span>Base em Belém</span>
+                <span style="display: flex; align-items: center; gap: 10px;"><span aria-hidden="true" style="width: 22px; border-top: 2px dotted var(--orange);"></span>Deslocamento para o interior</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="h-rec" style="padding: var(--pad) 0; background: var(--paper);">
+      <div style="max-width: 1040px; margin: 0 auto; padding: 0 var(--gut);">
+        <div style="text-align: center; max-width: 640px; margin: 0 auto;">
+          <h2 id="h-rec" style="color: var(--navy); font-size: clamp(2.3rem, 4.2vw, 3.4rem); font-weight: 600; line-height: 1.02; letter-spacing: -0.045em; margin: 0; text-wrap: balance;">Você sabe o que foi combinado e o que foi feito.</h2>
+          <p style="color: var(--ink-2); font-size: 1.12rem; margin: 18px auto 0; max-width: 44ch;">A confiança vem do processo: escopo claro antes, contato direto durante e retorno no final.</p>
+        </div>
+        <ul style="list-style: none; margin: clamp(40px, 6vw, 64px) auto 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr)); gap: 24px;">
+          <li style="background: var(--paper-2); border-radius: 18px; padding: 8px 28px 32px; text-align: center; display: flex; flex-direction: column; align-items: center;">
+              <div aria-hidden="true" style="position: relative; width: 144px; height: 144px; margin: 0 auto; -webkit-mask-image: radial-gradient(ellipse 50% 50% at 50% 50%, #000 70%, transparent 100%); mask-image: radial-gradient(ellipse 50% 50% at 50% 50%, #000 70%, transparent 100%);">
+                <div style="position: absolute; inset: 0; opacity: .1; background-image: linear-gradient(to right, #0A2E5D 1px, transparent 1px), linear-gradient(to bottom, #0A2E5D 1px, transparent 1px); background-size: 24px 24px;"></div>
+                <div style="position: absolute; inset: 0; margin: auto; width: 60px; height: 60px; background: #fff; border-radius: 14px; border: 1px solid rgba(10,46,93,.14); box-shadow: 0 10px 24px -14px rgba(6,32,63,.35), inset 0 -2px 0 rgba(10,46,93,.05); display: flex; align-items: center; justify-content: center;"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="#0A2E5D" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="m9 14 2 2 4-4" stroke="#F57C00"/></svg></div>
+              </div>
+              <span style="margin-top: 8px; font-size: 14.5px; font-weight: 600; color: var(--orange-ink);">Antes</span>
+              <h3 style="margin: 6px 0 10px; color: var(--navy); font-size: 1.4rem; font-weight: 600; letter-spacing: -0.03em; line-height: 1.15;">Escopo combinado</h3>
+              <p style="margin: 0; color: var(--ink-2); font-size: 1rem; line-height: 1.6; max-width: 30ch;">Alinhamos o que será feito, onde, em que prazo e como será o retorno.</p>
+            </li>
+          <li style="background: var(--paper-2); border-radius: 18px; padding: 8px 28px 32px; text-align: center; display: flex; flex-direction: column; align-items: center;">
+              <div aria-hidden="true" style="position: relative; width: 144px; height: 144px; margin: 0 auto; -webkit-mask-image: radial-gradient(ellipse 50% 50% at 50% 50%, #000 70%, transparent 100%); mask-image: radial-gradient(ellipse 50% 50% at 50% 50%, #000 70%, transparent 100%);">
+                <div style="position: absolute; inset: 0; opacity: .1; background-image: linear-gradient(to right, #0A2E5D 1px, transparent 1px), linear-gradient(to bottom, #0A2E5D 1px, transparent 1px); background-size: 24px 24px;"></div>
+                <div style="position: absolute; inset: 0; margin: auto; width: 60px; height: 60px; background: #fff; border-radius: 14px; border: 1px solid rgba(10,46,93,.14); box-shadow: 0 10px 24px -14px rgba(6,32,63,.35), inset 0 -2px 0 rgba(10,46,93,.05); display: flex; align-items: center; justify-content: center;"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="#0A2E5D" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 8.6 8.6 0 0 1-3.8-.9L3 20.5l1.6-4.6A8.4 8.4 0 1 1 21 11.5z"/><circle cx="12" cy="9.6" r="2.1" stroke="#F57C00"/><path d="M8.6 15.2c.8-1.4 2-2.1 3.4-2.1s2.6.7 3.4 2.1" stroke="#F57C00"/></svg></div>
+              </div>
+              <span style="margin-top: 8px; font-size: 14.5px; font-weight: 600; color: var(--orange-ink);">Durante</span>
+              <h3 style="margin: 6px 0 10px; color: var(--navy); font-size: 1.4rem; font-weight: 600; letter-spacing: -0.03em; line-height: 1.15;">Um ponto de contato</h3>
+              <p style="margin: 0; color: var(--ink-2); font-size: 1rem; line-height: 1.6; max-width: 30ch;">Você trata direto com quem acompanha a execução, sem repassar a demanda de pessoa em pessoa.</p>
+            </li>
+          <li style="background: var(--paper-2); border-radius: 18px; padding: 8px 28px 32px; text-align: center; display: flex; flex-direction: column; align-items: center;">
+              <div aria-hidden="true" style="position: relative; width: 144px; height: 144px; margin: 0 auto; -webkit-mask-image: radial-gradient(ellipse 50% 50% at 50% 50%, #000 70%, transparent 100%); mask-image: radial-gradient(ellipse 50% 50% at 50% 50%, #000 70%, transparent 100%);">
+                <div style="position: absolute; inset: 0; opacity: .1; background-image: linear-gradient(to right, #0A2E5D 1px, transparent 1px), linear-gradient(to bottom, #0A2E5D 1px, transparent 1px); background-size: 24px 24px;"></div>
+                <div style="position: absolute; inset: 0; margin: auto; width: 60px; height: 60px; background: #fff; border-radius: 14px; border: 1px solid rgba(10,46,93,.14); box-shadow: 0 10px 24px -14px rgba(6,32,63,.35), inset 0 -2px 0 rgba(10,46,93,.05); display: flex; align-items: center; justify-content: center;"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="#0A2E5D" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="m9 15 2 2 4-4" stroke="#F57C00"/></svg></div>
+              </div>
+              <span style="margin-top: 8px; font-size: 14.5px; font-weight: 600; color: var(--orange-ink);">No final</span>
+              <h3 style="margin: 6px 0 10px; color: var(--navy); font-size: 1.4rem; font-weight: 600; letter-spacing: -0.03em; line-height: 1.15;">Devolutiva</h3>
+              <p style="margin: 0; color: var(--ink-2); font-size: 1rem; line-height: 1.6; max-width: 30ch;">Você recebe o que foi feito, o que foi verificado e o que ficou pendente.</p>
+            </li>
+        </ul>
+      </div>
+    </section>
+
+    <section aria-labelledby="h-sit" style="position: relative; overflow: hidden; padding: var(--pad) 0; background: var(--navy); color: #fff;">
+      <div aria-hidden="true" style="position: absolute; inset: 0; z-index: 0; pointer-events: none;">
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Esta%C3%A7%C3%A3o_das_Docas_Bel%C3%A9m_Par%C3%A1_2023-8697.jpg?width=1280" srcSet="Special:FilePath/Esta%C3%A7%C3%A3o_das_Docas_Bel%C3%A9m_Par%C3%A1_2023-8697.jpg?width=640 640w, Special:FilePath/Esta%C3%A7%C3%A3o_das_Docas_Bel%C3%A9m_Par%C3%A1_2023-8697.jpg?width=960 960w, https://commons.wikimedia.org/wiki/Special:FilePath/Esta%C3%A7%C3%A3o_das_Docas_Bel%C3%A9m_Par%C3%A1_2023-8697.jpg?width=1280 1280w, https://commons.wikimedia.org/wiki/Special:FilePath/Esta%C3%A7%C3%A3o_das_Docas_Bel%C3%A9m_Par%C3%A1_2023-8697.jpg?width=1920 1920w, https://commons.wikimedia.org/wiki/Special:FilePath/Esta%C3%A7%C3%A3o_das_Docas_Bel%C3%A9m_Par%C3%A1_2023-8697.jpg?width=2560 2560w" sizes="100vw" alt="" width="6240" height="4160" loading="lazy" decoding="async" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 60%;">
+        <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(10,46,93,0.86) 0%, rgba(10,46,93,0.9199999999999999) 100%);"></div>
+      </div>
+      <p style="position: absolute; right: 12px; bottom: 10px; z-index: 2; margin: 0; font-size: 11.5px; line-height: 1.4; color: rgba(255,255,255,.75);">Estação das Docas. Foto: Prburley, CC BY 4.0 · <a href="https://commons.wikimedia.org/wiki/File:Esta%C3%A7%C3%A3o_das_Docas_Bel%C3%A9m_Par%C3%A1_2023-8697.jpg" target="_blank" rel="noopener" style="color: rgba(255,255,255,.9); text-decoration: underline;">Wikimedia Commons</a></p>
+      <div style="position: relative; z-index: 1; max-width: 1280px; margin: 0 auto; padding: 0 var(--gut);">
+        <div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 20px 64px; flex-wrap: wrap; margin-bottom: clamp(48px, 6vw, 80px);">
+          <h2 id="h-sit" style="color: #fff; font-size: clamp(2.5rem, 4.4vw, 3.8rem); font-weight: 600; line-height: 1.0; letter-spacing: -0.045em; margin: 0;">Onde a Resolva Aqui<br>entra em cena</h2>
+          <p style="color: rgba(255,255,255,.84); font-size: 1.04rem; margin: 0; max-width: 34ch;">Situações ilustrativas do tipo de demanda que assumimos. Não são relatos de clientes.</p>
+        </div>
+        <div style="{{ sitGrid }}">
+          <article style="{{ sitBig }}">
+            <span style="font-size: 15px; font-weight: 600; color: var(--orange); margin-bottom: auto;">{{ sit0.cat }}</span>
+            <h3 style="font-size: clamp(1.8rem, 3.4vw, 3rem); font-weight: 500; letter-spacing: -0.045em; line-height: 1.1; margin: 48px 0 24px; max-width: 18ch;">{{ sit0.quote }}</h3>
+            <p style="margin: 0; color: rgba(255,255,255,.84); font-size: 1.1rem; max-width: 40ch; display: flex; gap: 12px;"><span aria-hidden="true" style="color: var(--orange);">→</span><span>{{ sit0.answer }}</span></p>
+          </article>
+          <div style="display: flex; flex-direction: column;">
+            <sc-for list="{{ sitRest }}" as="s" hint-placeholder-count="3">
+              <article style="padding: 28px 0; border-top: 1px solid var(--line-dark); display: flex; flex-direction: column; gap: 10px;">
+                <span style="font-size: 15px; font-weight: 600; color: var(--orange);">{{ s.cat }}</span>
+                <h3 style="font-size: clamp(1.26rem, 1.9vw, 1.55rem); font-weight: 500; letter-spacing: -0.032em; line-height: 1.24; margin: 0; color: #fff;">{{ s.quote }}</h3>
+                <p style="margin: 0; color: rgba(255,255,255,.84); font-size: 1.02rem; max-width: 44ch; display: flex; gap: 12px;"><span aria-hidden="true" style="color: var(--orange);">→</span><span>{{ s.answer }}</span></p>
+              </article>
+            </sc-for>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="sobre" aria-labelledby="h-sobre" style="background: var(--paper); overflow: hidden;">
+      <div style="{{ sobreGrid }}">
+        <sc-if value="{{ hasFoto }}" hint-placeholder-val="{{ false }}">
+          <figure style="{{ sobreFig }}">
+            <img src="{{ fotoSobre }}" alt="{{ fotoSobreAlt }}" loading="lazy" decoding="async" width="1200" height="1000" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;">
+          </figure>
+        </sc-if>
+        <sc-if value="{{ semFoto }}" hint-placeholder-val="{{ true }}">
+          <div style="{{ sobreFicha }}">
+            <div style="display: flex; align-items: center; gap: 14px; font-size: 15px; font-weight: 600; color: var(--orange);"><span aria-hidden="true" style="width: 10px; height: 10px; border-radius: 50%; background: var(--orange); box-shadow: 0 0 0 6px rgba(245,124,0,.18);"></span>Belém, Pará</div>
+            <dl style="margin: 0; display: flex; flex-direction: column;">
+              <div style="display: grid; grid-template-columns: minmax(0, 7.5em) minmax(0, 1fr); gap: 16px; padding: 20px 0; border-top: 1px solid var(--line-dark);"><dt style="font-size: 15px; color: rgba(255,255,255,.72);">Atende</dt><dd style="margin: 0; font-size: 1.14rem; font-weight: 500; letter-spacing: -0.015em; color: #fff;">Empresas com algo para resolver em Belém ou no Pará</dd></div>
+              <div style="display: grid; grid-template-columns: minmax(0, 7.5em) minmax(0, 1fr); gap: 16px; padding: 20px 0; border-top: 1px solid var(--line-dark);"><dt style="font-size: 15px; color: rgba(255,255,255,.72);">Formato</dt><dd style="margin: 0; font-size: 1.14rem; font-weight: 500; letter-spacing: -0.015em; color: #fff;">Sob demanda, com escopo combinado antes</dd></div>
+              <div style="display: grid; grid-template-columns: minmax(0, 7.5em) minmax(0, 1fr); gap: 16px; padding: 20px 0; border-top: 1px solid var(--line-dark);"><dt style="font-size: 15px; color: rgba(255,255,255,.72);">Contato</dt><dd style="margin: 0; font-size: 1.14rem; font-weight: 500; letter-spacing: -0.015em; color: #fff;">Uma pessoa acompanha do pedido ao retorno</dd></div>
+              <div style="display: grid; grid-template-columns: minmax(0, 7.5em) minmax(0, 1fr); gap: 16px; padding: 20px 0; border-top: 1px solid var(--line-dark); border-bottom: 1px solid var(--line-dark);"><dt style="font-size: 15px; color: rgba(255,255,255,.72);">Entrega</dt><dd style="margin: 0; font-size: 1.14rem; font-weight: 500; letter-spacing: -0.015em; color: #fff;">Devolutiva do que foi feito e do que ficou pendente</dd></div>
+            </dl>
+          </div>
+        </sc-if>
+        <div style="{{ sobreText }}">
+          <h2 id="h-sobre" style="color: var(--navy); font-size: clamp(2.3rem, 3.8vw, 3.4rem); font-weight: 600; line-height: 1.02; letter-spacing: -0.045em; margin: 0 0 32px;">Resolver começa por<br>entender a demanda.</h2>
+          <p style="color: var(--ink-2); font-size: 1.12rem; margin: 0 0 18px; max-width: 42ch;">A Resolva Aqui existe para o tipo de demanda que atravessa a rotina de uma empresa e não tem dono claro: precisa de alguém no local, de alguém procurando, de alguém acompanhando.</p>
+          <p style="color: var(--ink-2); font-size: 1.12rem; margin: 0 0 32px; max-width: 42ch;">Atendemos empresas do Pará e de fora que precisam de alguém em Belém ou no interior do estado. Cada demanda começa por uma conversa sobre o que precisa ser resolvido e termina com a devolutiva do que foi feito.</p>
+          <div style="display: flex; flex-wrap: wrap; gap: 8px 32px; align-items: center;"><a href="#contato" style="color: var(--navy); font-weight: 600; font-size: 17px; display: inline-flex; align-items: center; gap: 12px; min-height: 52px; text-decoration: underline; text-decoration-color: var(--orange); text-decoration-thickness: 2px; text-underline-offset: 7px;" style-hover="color: var(--navy);">Explicar minha demanda <span data-ar="" aria-hidden="true" style="color: var(--orange-display);">→</span></a><a href="sobre.dc.html" style="color: var(--navy); font-weight: 600; font-size: 17px; min-height: 52px; display: inline-flex; align-items: center; text-decoration: underline; text-decoration-color: rgba(10,46,93,.3); text-decoration-thickness: 2px; text-underline-offset: 7px;" style-hover="color: var(--navy); text-decoration-color: var(--orange);">Mais sobre a Resolva Aqui</a></div>
+        </div>
+      </div>
+    </section>
+
+    <sc-if value="{{ hasDepo }}" hint-placeholder-val="{{ false }}">
+    <section id="depoimentos" aria-labelledby="h-depo" style="padding: var(--pad) 0; background: var(--paper); overflow: hidden;">
+      <div style="max-width: 1280px; margin: 0 auto; padding: 0 var(--gut);">
+        <div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 20px 64px; flex-wrap: wrap; margin-bottom: clamp(40px, 5vw, 64px);">
+          <h2 id="h-depo" style="color: var(--navy); font-size: clamp(2.5rem, 4.4vw, 3.8rem); font-weight: 600; line-height: 1.0; letter-spacing: -0.045em; margin: 0;">Quem já resolveu<br>com a gente</h2>
+          <sc-if value="{{ depoExemplo }}" hint-placeholder-val="{{ false }}">
+            <p style="margin: 0; max-width: 36ch; font-size: 15px; font-weight: 600; color: var(--orange-ink);">Pré-visualização do layout. Os textos abaixo são marcadores, não depoimentos.</p>
+          </sc-if>
+        </div>
+        <div role="region" aria-label="Depoimentos de clientes" style="display: flex; justify-content: center; gap: 24px; max-height: 720px; overflow: hidden; -webkit-mask-image: linear-gradient(to bottom, transparent, #000 10%, #000 90%, transparent); mask-image: linear-gradient(to bottom, transparent, #000 10%, #000 90%, transparent);">
+          <sc-for list="{{ depoCols }}" as="col" hint-placeholder-count="3">
+            <div style="flex: 1; max-width: 380px; min-width: 0;" style-hover="--x: 1;">
+              <ul data-marquee="" style="{{ col.style }}">
+                <sc-for list="{{ col.itens }}" as="t" hint-placeholder-count="6">
+                  <li aria-hidden="{{ t.dup }}" style="background: #fff; border: 1px solid var(--line); border-radius: 24px; padding: clamp(28px, 3vw, 40px); box-shadow: 0 10px 30px -18px rgba(6,32,63,.25);">
+                    <blockquote style="margin: 0;">
+                      <p style="margin: 0; color: var(--ink-2); font-size: 1.04rem; line-height: 1.6;">{{ t.texto }}</p>
+                      <footer style="display: flex; align-items: center; gap: 12px; margin-top: 22px;">
+                        <span aria-hidden="true" style="width: 40px; height: 40px; border-radius: 50%; background: var(--navy); color: #fff; font-size: 15px; font-weight: 600; display: flex; align-items: center; justify-content: center; flex: none;">{{ t.ini }}</span>
+                        <span style="display: flex; flex-direction: column;">
+                          <cite style="font-style: normal; font-weight: 600; color: var(--navy); line-height: 1.3;">{{ t.nome }}</cite>
+                          <span style="font-size: 14.5px; color: var(--ink-3); line-height: 1.35;">{{ t.cargo }}</span>
+                        </span>
+                      </footer>
+                    </blockquote>
+                  </li>
+                </sc-for>
+              </ul>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </section>
+    </sc-if>
+
+    <section id="contato" aria-labelledby="h-cta" style="background: var(--navy); color: #fff; padding: var(--pad) 0;">
+      <div style="max-width: 1280px; margin: 0 auto; padding: 0 var(--gut); display: grid; grid-template-columns: repeat(auto-fit, minmax(min(360px, 100%), 1fr)); gap: clamp(40px, 6vw, 96px); align-items: start;">
+        <div style="{{ ctaSide }}">
+          <h2 id="h-cta" style="color: #fff; font-size: clamp(2.7rem, 5vw, 4.4rem); font-weight: 600; line-height: 0.98; letter-spacing: -0.05em; margin: 0 0 24px;">Conte o que<br>precisa ser<br><span style="color: var(--orange);">resolvido.</span></h2>
+          <p style="color: rgba(255,255,255,.84); font-size: 1.12rem; margin: 0 0 clamp(36px, 4vw, 48px); max-width: 38ch;">Duas etapas curtas: primeiro a demanda, depois como falar com você. Não precisa saber o nome do serviço.</p>
+          <div style="border: 1px solid var(--line-dark); border-radius: 18px; background: rgba(255,255,255,.04); padding: clamp(22px, 2.6vw, 32px); max-width: 460px;">
+            <h3 style="margin: 0 0 6px; font-size: 1.12rem; font-weight: 600; letter-spacing: -0.02em; color: #fff;">O que acontece depois do envio</h3>
+            <ol style="list-style: none; margin: 0; padding: 0; position: relative;">
+              <span aria-hidden="true" style="position: absolute; left: 13px; top: 30px; bottom: 30px; border-left: 2px dotted rgba(245,124,0,.6);"></span>
+              <li style="position: relative; display: grid; grid-template-columns: 28px minmax(0, 1fr); gap: 16px; padding: 14px 0;">
+                <span style="width: 28px; height: 28px; border-radius: 50%; box-sizing: border-box; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 600; background: var(--navy); color: var(--orange); border: 2px solid var(--orange);">1</span>
+                <span style="display: flex; flex-direction: column; gap: 2px;"><strong style="font-size: 1rem; font-weight: 600; color: #fff;">Lemos a demanda</strong><span style="font-size: 15px; color: rgba(255,255,255,.76);">Com o contexto que você enviou no formulário.</span></span>
+              </li>
+              <li style="position: relative; display: grid; grid-template-columns: 28px minmax(0, 1fr); gap: 16px; padding: 14px 0;">
+                <span style="width: 28px; height: 28px; border-radius: 50%; box-sizing: border-box; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 600; background: var(--navy); color: var(--orange); border: 2px solid var(--orange);">2</span>
+                <span style="display: flex; flex-direction: column; gap: 2px;"><strong style="font-size: 1rem; font-weight: 600; color: #fff;">Tiramos dúvidas, se precisar</strong><span style="font-size: 15px; color: rgba(255,255,255,.76);">Pelo WhatsApp ou e-mail informado.</span></span>
+              </li>
+              <li style="position: relative; display: grid; grid-template-columns: 28px minmax(0, 1fr); gap: 16px; padding: 14px 0;">
+                <span style="width: 28px; height: 28px; border-radius: 50%; box-sizing: border-box; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 600; background: var(--navy); color: var(--orange); border: 2px solid var(--orange);">3</span>
+                <span style="display: flex; flex-direction: column; gap: 2px;"><strong style="font-size: 1rem; font-weight: 600; color: #fff;">Enviamos escopo, prazo e valor</strong><span style="font-size: 15px; color: rgba(255,255,255,.76);">Para sua aprovação, antes de qualquer execução.</span></span>
+              </li>
+              <li style="position: relative; display: grid; grid-template-columns: 28px minmax(0, 1fr); gap: 16px; padding: 14px 0;">
+                <span style="width: 28px; height: 28px; border-radius: 50%; box-sizing: border-box; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 600; background: var(--orange); color: var(--navy);">4</span>
+                <span style="display: flex; flex-direction: column; gap: 2px;"><strong style="font-size: 1rem; font-weight: 600; color: #fff;">A execução começa</strong><span style="font-size: 15px; color: rgba(255,255,255,.76);">Só depois do seu de acordo.</span></span>
+              </li>
+            </ol>
+          </div>
+          <div style="display: flex; flex-wrap: wrap; gap: 10px 24px; margin-top: 24px; font-size: 15px; color: rgba(255,255,255,.8);">
+            <span style="display: inline-flex; align-items: center; gap: 8px;"><span aria-hidden="true" style="width: 6px; height: 6px; border-radius: 50%; background: var(--orange);"></span>Sem compromisso até aprovar o escopo</span>
+            <span style="display: inline-flex; align-items: center; gap: 8px;"><span aria-hidden="true" style="width: 6px; height: 6px; border-radius: 50%; background: var(--orange);"></span>Dados usados só para responder</span>
+          </div>
+          <sc-if value="{{ hasWhatsCta }}" hint-placeholder-val="{{ false }}">
+            <p style="margin: 20px 0 0; font-size: 1rem; color: rgba(255,255,255,.84);">Prefere conversar? <a href="{{ whatsCtaHref }}" target="_blank" rel="noopener" data-track="whatsapp_click" style="color: #fff; font-weight: 600; text-decoration: underline; text-decoration-color: var(--orange); text-decoration-thickness: 2px; text-underline-offset: 5px;">Falar pelo WhatsApp</a></p>
+          </sc-if>
+        </div>
+        <dc-import name="LeadForm" preset="{{ preset }}" origem="home" hint-size="100%,760px"></dc-import>
+      </div>
+    </section>
+
+    <section id="duvidas" aria-labelledby="h-faq" style="position: relative; overflow: hidden; padding: var(--pad) 0; background: var(--paper); color: var(--ink);">
+      <span aria-hidden="true" style="position: absolute; left: 50%; top: -320px; width: 640px; height: 480px; transform: translateX(-50%); border-radius: 50%; background: radial-gradient(closest-side, rgba(245,124,0,.12), rgba(10,46,93,.05) 60%, transparent); filter: blur(40px); pointer-events: none;"></span>
+      <div style="position: relative; max-width: 860px; margin: 0 auto; padding: 0 var(--gut);">
+        <div style="display: flex; flex-direction: column; align-items: center; text-align: center; margin-bottom: 36px;">
+          <h2 id="h-faq" style="color: var(--navy); font-size: clamp(2.5rem, 4.4vw, 3.8rem); font-weight: 600; line-height: 1.0; letter-spacing: -0.045em; margin: 0 0 18px;">Perguntas frequentes</h2>
+          <p style="color: var(--ink-2); font-size: 1.12rem; margin: 0; max-width: 40ch;">Se a sua não estiver aqui, descreva a situação no formulário.</p>
+        </div>
+        <div role="tablist" aria-label="Temas das perguntas" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-bottom: 40px;">
+          <sc-for list="{{ faqCats }}" as="c" hint-placeholder-count="3">
+            <button type="button" role="tab" id="{{ c.tabId }}" aria-selected="{{ c.on }}" aria-controls="ra-faq-painel" onClick="{{ c.pick }}" style="{{ c.style }}">
+              <span aria-hidden="true" style="{{ c.fill }}"></span>
+              <span style="position: relative; z-index: 1;">{{ c.label }}</span>
+            </button>
+          </sc-for>
+        </div>
+        <div id="ra-faq-painel" role="tabpanel" aria-labelledby="{{ faqTabAtivo }}" style="{{ faqPanel }}">
+          <sc-for list="{{ faqs }}" as="f" hint-placeholder-count="4">
+            <div style="{{ f.wrap }}">
+              <h3 style="margin: 0; font: inherit;">
+                <button type="button" id="{{ f.btnId }}" onClick="{{ f.toggle }}" aria-expanded="{{ f.open }}" aria-controls="{{ f.bodyId }}" style="{{ f.btn }}">
+                  <span>{{ f.q }}</span>
+                  <span aria-hidden="true" style="{{ f.iconStyle }}">+</span>
+                </button>
+              </h3>
+              <div id="{{ f.bodyId }}" role="region" aria-labelledby="{{ f.btnId }}" style="{{ f.bodyStyle }}">
+                <div style="overflow: hidden;"><p style="{{ f.ans }}">{{ f.a }}</p></div>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </section>
+
+    
+  </main>
+
+  <dc-import name="SiteFooter" hint-size="100%,560px"></dc-import>
+
+  <div style="{{ mobileBarStyle }}">
+    <ra-metal><a href="#contato" data-track="cta_barra_mobile" style="background: var(--orange); color: #FFFFFF; font-weight: 600; font-size: 17px; min-height: 56px; border-radius: 999px; gap: 14px; display: flex; align-items: center; justify-content: center; gap: 10px;"><span>Explicar minha demanda</span><span aria-hidden="true" style="width: 38px; height: 38px; border-radius: 50%; background: #0A2E5D; color: #fff; display: inline-flex; align-items: center; justify-content: center; font-size: 17px;">→</span></a></ra-metal>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1280},&quot;fotoSobre&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Sobre&quot;},&quot;fotoSobreAlt&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Sobre&quot;},&quot;previewDepoimentos&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Depoimentos&quot;}}">
+const DEMANDAS = [
+  ["Encontrar um fornecedor", "Busca e captação", "Pesquisamos opções compatíveis, fazemos o contato inicial e reunimos as respostas para você decidir."],
+  ["Ter alguém acompanhando uma operação", "Apoio operacional", "Presença no local para acompanhar, verificar e registrar o que foi combinado."],
+  ["Organizar e digitalizar documentos", "Apoio administrativo", "Organização do arquivo físico e conversão para formato digital."],
+  ["Ter apoio em uma visita técnica", "Apoio operacional", "Acompanhamento da visita, com suporte durante toda a atividade."],
+  ["Encontrar um local ou imóvel", "Busca e captação", "Busca de espaços adequados à demanda, com visita antes da decisão."],
+  ["Acompanhar um evento", "Eventos e apoio local", "Apoio na logística e na execução, da preparação ao encerramento."],
+  ["Encontrar um profissional de confiança", "Busca e captação", "Busca e seleção de profissionais com referências."],
+  ["Resolver uma demanda local", "Apoio operacional", "Execução em Belém e no Pará em nome da sua empresa, dentro do escopo combinado."]
+];
+// Paletas por frente, só cores da marca.
+const PALETAS = {
+  "Busca e captação": ["#06203F", "#F57C00", "#0A2E5D", "#FF9433"],
+  "Apoio operacional": ["#06203F", "#2C5A96", "#0A2E5D", "#EBF4F8"],
+  "Apoio administrativo": ["#06203F", "#2C4A73", "#0A2E5D", "#9FB6D3"],
+  "Eventos e apoio local": ["#B85500", "#F57C00", "#06203F", "#FF9433"]
+};
+// SOMENTE depoimentos reais, autorizados pela cliente: [texto, nome, cargo · empresa].
+// Vazio = a seção não aparece no site. [VALIDAR COM CLIENTE]
+const DEPOIMENTOS = [];
+const DEPO_EXEMPLO = [
+  ["[Depoimento real do cliente: o que precisava ser resolvido e como foi o retorno.]", "Nome do cliente", "Cargo · Empresa"],
+  ["[Depoimento real do cliente sobre uma visita técnica acompanhada em Belém.]", "Nome do cliente", "Cargo · Empresa"],
+  ["[Depoimento real do cliente sobre a busca de um fornecedor local.]", "Nome do cliente", "Cargo · Empresa"],
+  ["[Depoimento real do cliente sobre o apoio em um evento.]", "Nome do cliente", "Cargo · Empresa"],
+  ["[Depoimento real do cliente sobre a organização de documentos.]", "Nome do cliente", "Cargo · Empresa"],
+  ["[Depoimento real de uma empresa de fora do Pará.]", "Nome do cliente", "Cargo · Empresa"]
+];
+const ETAPAS = [
+  ["01", "Você explica", "O que precisa ser feito, onde, em que prazo e o resultado esperado."],
+  ["02", "A gente organiza", "Avaliamos a demanda e combinamos escopo, prazo e forma de retorno antes de começar."],
+  ["03", "A demanda acontece", "Encontramos as pessoas e os recursos necessários e executamos ou acompanhamos no local."],
+  ["04", "Você recebe o retorno", "A devolutiva do que foi feito, verificado e do que ficou pendente."]
+];
+// [VALIDAR COM CLIENTE] lista de serviços atualmente oferecidos.
+const GRUPOS = [
+  ["Apoio administrativo", "A papelada e os processos internos que ninguém da equipe tem tempo de conduzir.", ["Digitalização de documentos", "Organização de arquivo físico", "Mobilização de contratos"]],
+  ["Apoio operacional", "Presença no local para verificar, acompanhar e registrar o que foi combinado.", ["Visitas técnicas", "Acompanhamento de execução", "Diligências no local"]],
+  ["Busca e captação", "Encontrar quem ou o que a demanda exige, com contato inicial e comparação feitos.", ["Fornecedores", "Profissionais com referências", "Locais e imóveis"]],
+  ["Eventos e apoio local", "Logística e acompanhamento para quem precisa realizar algo na região.", ["Eventos corporativos", "Passeios náuticos corporativos", "Preparação de ambientes", "Guia local com transporte próprio", "Reservas e indicações"]]
+];
+const SITUACOES = [
+  ["Evento", "Precisamos de alguém acompanhando a montagem antes do evento.", "Presença no local durante a preparação, com retorno do que está pronto e do que ficou pendente."],
+  ["Local", "Precisamos avaliar alguns espaços antes de decidir.", "Busca de espaços compatíveis, visita e organização das informações para a decisão."],
+  ["Documentos", "Temos documentos físicos que precisam ser organizados.", "Organização do arquivo, digitalização e entrega dos arquivos nomeados."],
+  ["Fornecedor", "Precisamos encontrar fornecedores locais.", "Pesquisa, contato inicial e as respostas reunidas em um único retorno."]
+];
+// Manter em sincronia com o JSON-LD FAQPage no <helmet>.
+const FAQ_CATS = [["contratacao","Contratação",[["Como funciona a contratação?","Você descreve a demanda no formulário: o que precisa ser feito, onde e em que prazo. A Resolva Aqui avalia, combina o escopo e retorna pelo contato informado antes de qualquer execução."],["Vocês atendem demandas pontuais?","Sim. O escopo é definido demanda por demanda, sem pacote fechado obrigatório."],["Quais informações preciso enviar?","O que precisa ser feito, onde será realizado, o prazo desejado e o resultado esperado. Com esses quatro pontos já é possível avaliar."],["Quando o valor é definido?","Escopo, prazo e valor são combinados antes de qualquer execução, a partir do que você descreveu."]]],["atendimento","Onde atendemos",[["Onde vocês atendem?","O atendimento presencial cobre Belém e a Região Metropolitana e o interior do Pará. Outros estados da região Norte são avaliados caso a caso."],["Minha empresa não é do Pará. Vocês atendem?","Sim. A Resolva Aqui funciona como apoio local para empresas que precisam de alguém em Belém ou no interior do Pará para acompanhar, verificar ou resolver algo no local."],["Preciso estar em Belém para contratar?","Não. A solicitação, o alinhamento do escopo e a devolutiva acontecem a distância. Só a execução é feita no local."],["Quais demandas podem ser remotas?","As que não exigem presença no local podem ser atendidas remotamente, para empresas de qualquer estado."]]],["servicos","Serviços",[["Posso contratar mais de uma frente na mesma demanda?","Sim. É comum uma demanda passar por mais de uma frente, por exemplo buscar um local e depois acompanhar a montagem. O escopo é combinado como um todo."],["E se a minha demanda não se encaixa em nenhuma frente?","Descreva mesmo assim. As frentes são um ponto de partida; o que define o atendimento é o que precisa ser resolvido."],["O que eu recebo no final?","Uma devolutiva com o que foi feito, o que foi verificado e o que ficou pendente, no formato combinado no escopo."]]]];
+class Component extends DCLogic {
+  state = { demanda: null, hov: 0, grupo: 0, fade: false, faq: -1, farDown: false, perto: false, preset: null,
+    w: typeof window === "undefined" ? 1280 : window.innerWidth };
+
+  componentDidMount() {
+    this.onScroll = () => {
+      const el = document.scrollingElement || document.documentElement;
+      const y = window.scrollY || el.scrollTop || 0;
+      const f = y > 760, p = window.innerHeight + y > el.scrollHeight - 700;
+      if (f !== this.state.farDown || p !== this.state.perto) this.setState({ farDown: f, perto: p });
+    };
+    window.addEventListener("scroll", this.onScroll, { passive: true, capture: true });
+    this.onScroll();
+    this.onResize = () => { if (window.innerWidth !== this.state.w) this.setState({ w: window.innerWidth }); };
+    window.addEventListener("resize", this.onResize, { passive: true });
+    this.initMotion();
+  }
+
+  // Hierarquia de motion: CSS para hover/foco; GSAP só no H1 do hero (linhas) e na rota do processo; o mapa anima por CSS ao entrar na tela.
+  initMotion() {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const g0 = window.gsap;
+    if (g0) {
+      // Só anima o hero se o GSAP já estiver pronto no mount: nunca esconder o H1 esperando a CDN.
+      const lines = document.querySelectorAll("[data-hl]");
+      this._hero = g0.fromTo(lines, { yPercent: 105 }, { yPercent: 0, duration: 0.9, stagger: 0.09, ease: "power3.out", delay: 0.05, clearProps: "transform" });
+      const img = document.querySelector("[data-hero-img]");
+      if (img) this._heroImg = g0.fromTo(img, { scale: 1.06 }, { scale: 1, duration: 1.8, ease: "power2.out", clearProps: "transform" });
+      // Rede de segurança: se o rAF estiver pausado (aba em segundo plano), o H1 nunca fica escondido.
+      this._heroSafe = setTimeout(() => { [this._hero, this._heroImg].forEach((t) => { if (t && t.progress() < 1) t.progress(1); }); }, 2200);
+    }
+    let n = 0;
+    const rota = () => {
+      const g = window.gsap, ST = window.ScrollTrigger;
+      if (!g || !ST) { if (n++ < 40) this._gt = setTimeout(rota, 100); return; }
+      g.registerPlugin(ST);
+      const fill = document.querySelector("[data-timeline-fill]");
+      if (!fill) return;
+      this._ctx = g.context(() => {
+        g.fromTo(fill, { scaleY: 0 }, { scaleY: 1, ease: "none", scrollTrigger: { trigger: fill.closest("ol"), start: "top 60%", end: "bottom 55%", scrub: 0.4 } });
+      });
+    };
+    rota();
+  }
+
+  componentWillUnmount() {
+    clearTimeout(this._gt); clearTimeout(this.fadeT); clearTimeout(this._ff); clearTimeout(this._heroSafe);
+    if (this._ctx) this._ctx.revert();
+    if (this._hero) this._hero.revert();
+    if (this._heroImg) this._heroImg.revert();
+    window.removeEventListener("scroll", this.onScroll, { capture: true });
+    window.removeEventListener("resize", this.onResize);
+  }
+
+  pickDemanda(titulo, grupo) {
+    const n = (this.state.preset ? this.state.preset.n : 0) + 1;
+    this.setState({ demanda: titulo, preset: { tipo: grupo, desc: titulo + ": ", n } });
+    if (window.raTrack) window.raTrack("demanda_escolhida", { demanda: titulo });
+    const el = document.getElementById("contato");
+    if (el) { const top = el.getBoundingClientRect().top + (window.scrollY || 0) - 80; window.scrollTo({ top, behavior: "smooth" }); }
+  }
+
+  pickGrupo(i) {
+    if (i === this.state.grupo) return;
+    this.setState({ fade: true });
+    clearTimeout(this.fadeT);
+    this.fadeT = setTimeout(() => this.setState({ grupo: i, fade: false }), 150);
+  }
+
+  renderVals() {
+    const s = this.state;
+    const wide = s.w >= 1000, tight = s.w < 780;
+    const foto = String(this.props.fotoSobre ?? "").trim();
+    const ctxD = DEMANDAS[s.hov] || DEMANDAS[0];
+
+    return {
+      mobileBarStyle: "position: fixed; left: 0; right: 0; bottom: 0; z-index: 40; padding: 12px 16px calc(12px + env(safe-area-inset-bottom)); background: rgba(255,255,255,.95); backdrop-filter: blur(12px); border-top: 1px solid var(--line); display: " + (tight && s.farDown && !s.perto ? "block" : "none") + ";",
+      preset: s.preset,
+      ctaSide: wide ? "position: sticky; top: 112px; align-self: start;" : "",
+      ...(() => { const c = window.raContato ? window.raContato() : { hasWhats: false, whatsHref: "" }; return { hasWhatsCta: c.hasWhats, whatsCtaHref: c.whatsHref }; })(),
+
+      heroImgStyle: "width: 100%; height: 100%; object-fit: cover; display: block; object-position: " + (tight ? "72% 50%" : "60% 40%") + ";",
+      heroScrim: "position: absolute; inset: 0; pointer-events: none; background: " + (tight
+        ? "linear-gradient(180deg, rgba(6,32,63,.82) 0%, rgba(6,32,63,.86) 45%, rgba(6,32,63,.94) 100%);"
+        : "linear-gradient(90deg, rgba(6,32,63,.98) 0%, rgba(6,32,63,.95) 30%, rgba(6,32,63,.86) 46%, rgba(6,32,63,.55) 64%, rgba(6,32,63,.18) 84%, rgba(6,32,63,.08) 100%), linear-gradient(0deg, rgba(6,32,63,.72) 0%, transparent 40%);"),
+
+      cardsGrid: "list-style: none; margin: 0; padding: 0; display: grid; gap: clamp(16px, 2vw, 24px); grid-template-columns: " + (s.w >= 1180 ? "repeat(4, minmax(0, 1fr))" : s.w >= 640 ? "repeat(2, minmax(0, 1fr))" : "minmax(0, 1fr)") + ";",
+      demandas: DEMANDAS.map(([titulo, grupo, texto], i) => {
+        const on = s.demanda === titulo;
+        return {
+          titulo, grupo, texto,
+          cores: (PALETAS[grupo] || PALETAS["Apoio operacional"]).join(","),
+          shape: i % 2 ? "stripes" : "checks",
+          proportion: String(0.3 + (i % 4) * 0.05), softness: String(0.8 + (i % 3) * 0.15), distortion: String(0.15 + (i % 3) * 0.03),
+          swirl: String(0.6 + (i % 4) * 0.1), iter: String(8 + (i % 4) * 2), scale: String(0.08 + (i % 3) * 0.02),
+          style: "position: relative; z-index: 1; width: 100%; height: 100%; min-height: 280px; box-sizing: border-box; display: flex; flex-direction: column; align-items: flex-start; gap: 12px; padding: 28px; text-align: left; cursor: pointer; font-family: var(--f); border-radius: 24px; background: rgba(6,32,63,.8); transition: background 220ms ease, border-color 220ms ease; border: " + (on ? "2px solid var(--orange)" : "1px solid rgba(255,255,255,.2)") + ";",
+          pick: () => this.pickDemanda(titulo, grupo)
+        };
+      }),
+
+      ...(() => {
+        const exemplo = !DEPOIMENTOS.length && !!this.props.previewDepoimentos;
+        const lista = DEPOIMENTOS.length ? DEPOIMENTOS : exemplo ? DEPO_EXEMPLO : [];
+        const n = s.w >= 1000 ? 3 : s.w >= 700 ? 2 : 1;
+        const cols = Array.from({ length: Math.min(n, lista.length) }, () => []);
+        lista.forEach((t, k) => cols[k % cols.length].push(t));
+        const anima = lista.length > n;
+        return {
+          hasDepo: lista.length > 0, depoExemplo: exemplo,
+          depoCols: cols.map((itens, c) => ({
+            style: "list-style: none; margin: 0; padding: 0 0 24px; display: flex; flex-direction: column; gap: 24px;" + (anima ? " animation: ra-sobe " + (15 + c * 3) + "s linear infinite;" : ""),
+            itens: (anima ? itens.concat(itens) : itens).map(([texto, nome, cargo], j) => ({
+              texto, nome, cargo, dup: anima && j >= itens.length ? "true" : "false",
+              ini: String(nome).split(/\s+/).filter(Boolean).slice(0, 2).map((p) => p[0]).join("").toUpperCase()
+            }))
+          }))
+        };
+      })(),
+      etapas: ETAPAS.map(([num, titulo, desc], i) => {
+        const wideT = s.w >= 820, last = i === ETAPAS.length - 1;
+        return {
+          num, titulo, desc,
+          liStyle: "display: flex; align-items: flex-start; gap: " + (wideT ? "40px" : "20px") + "; padding-top: " + (wideT ? "clamp(72px, 10vw, 140px)" : "48px") + ";",
+          stickyStyle: "position: " + (wideT ? "sticky; top: 160px;" : "relative;") + " flex: none; width: " + (wideT ? "min(340px, 34%)" : "40px") + "; min-height: 40px; display: flex; align-items: center; padding-left: " + (wideT ? "80px" : "0") + "; box-sizing: border-box;",
+          numStyle: wideT ? "font-size: clamp(3rem, 5vw, 4.4rem); font-weight: 600; letter-spacing: -0.05em; line-height: 1; color: var(--orange);" : "display: none;",
+          dotStyle: "width: 14px; height: 14px; border-radius: 50%; box-sizing: border-box; border: 2px solid var(--orange); background: " + (last ? "var(--orange)" : "var(--navy)") + ";",
+          numMob: wideT ? "display: none;" : "display: block; font-size: 2.2rem; font-weight: 600; letter-spacing: -0.04em; line-height: 1; color: var(--orange); margin: 2px 0 14px;",
+          bodyStyle: "flex: 1; min-width: 0; padding-top: " + (wideT ? "10px" : "0") + ";" + (wideT ? "" : " display: flex; flex-direction: column;")
+        };
+      }),
+
+      servicosAccordion: tight,
+      servicosSplit: "display: " + (tight ? "none" : "grid") + "; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(40px, 5vw, 88px); align-items: start;",
+      grupos: GRUPOS.map(([nome, desc, itens], i) => {
+        const on = s.grupo === i;
+        return {
+          nome, desc, itens, active: on, tabId: "ra-tab-" + i,
+          style: "display: flex; align-items: center; gap: 18px; width: 100%; background: none; border: 0; border-bottom: 1px solid var(--line); cursor: pointer; padding: 24px 0; min-height: 76px; font-family: var(--f); font-size: clamp(1.3rem, 2vw, 1.75rem); font-weight: 500; letter-spacing: -0.035em; text-align: left; transition: color 180ms ease; color: " +
+            (on ? "var(--navy)" : "var(--ink-3)") + ";",
+          accStyle: "display: flex; align-items: center; gap: 18px; width: 100%; background: none; border: 0; cursor: pointer; padding: 22px 0; min-height: 68px; font-family: var(--f); font-size: 1.28rem; font-weight: 500; letter-spacing: -0.03em; color: var(--navy); text-align: left;",
+          iconStyle: "font-size: 28px; font-weight: 400; color: var(--orange-display); line-height: 1; flex: none; transform: rotate(" + (on ? "45deg" : "0deg") + "); transition: transform 220ms cubic-bezier(.2,.7,.3,1);",
+          markStyle: "font-size: 22px; flex: none; color: var(--orange-display); transition: opacity 180ms ease, transform 200ms ease; opacity: " + (on ? "1" : "0") + "; transform: translateX(" + (on ? "0" : "-8px") + ");",
+          pick: () => this.pickGrupo(i),
+          toggle: () => this.setState({ grupo: on ? -1 : i })
+        };
+      }),
+      panelStyle: "display: flex; flex-direction: column; gap: 32px; padding-top: 28px; transition: opacity 150ms ease, transform 150ms ease; opacity: " + (s.fade ? "0" : "1") + "; transform: translateY(" + (s.fade ? "8px" : "0") + ");",
+      grupoAtivo: (() => { const i = s.grupo < 0 ? 0 : s.grupo; const g = GRUPOS[i]; return { nome: g[0], desc: g[1], itens: g[2], tabId: "ra-tab-" + i }; })(),
+
+      atuGrid: wide
+        ? "display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(48px, 5vw, 96px); align-items: center;"
+        : "display: flex; flex-direction: column; gap: 48px;",
+
+      sitGrid: wide
+        ? "display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: clamp(40px, 5vw, 80px); align-items: stretch;"
+        : "display: flex; flex-direction: column; gap: 32px;",
+      sitBig: "background: var(--navy-deep); color: #fff; border: 1px solid var(--line-dark); border-radius: var(--r); padding: clamp(28px, 4.4vw, 60px); display: flex; flex-direction: column; min-height: " + (wide ? "500px" : "0") + ";",
+      sit0: { cat: SITUACOES[0][0], quote: SITUACOES[0][1], answer: SITUACOES[0][2] },
+      sitRest: SITUACOES.slice(1).map(([cat, quote, answer]) => ({ cat, quote, answer })),
+
+      hasFoto: !!foto, semFoto: !foto, fotoSobre: foto,
+      fotoSobreAlt: String(this.props.fotoSobreAlt ?? "").trim() || "Equipe da Resolva Aqui em atividade",
+      sobreGrid: wide
+        ? "display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); align-items: stretch; min-height: 640px;"
+        : "display: flex; flex-direction: column;",
+      sobreFig: "position: relative; margin: 0; overflow: hidden; background: var(--navy-2);" + (wide ? "" : " aspect-ratio: 4 / 3.4;"),
+      sobreFicha: "background: var(--navy-deep); color: #fff; display: flex; flex-direction: column; justify-content: space-between; gap: 48px; box-sizing: border-box; padding: " +
+        (wide ? "var(--pad) clamp(48px, 6vw, 104px) var(--pad) max(var(--gut), calc((100vw - 1280px) / 2 + 48px))" : "56px var(--gut)") + ";",
+      sobreText: wide
+        ? "padding: var(--pad) var(--gut) var(--pad) clamp(48px, 6vw, 104px); max-width: 600px; align-self: center; display: flex; flex-direction: column;"
+        : "padding: 64px var(--gut) 80px; display: flex; flex-direction: column;",
+
+      faqCats: FAQ_CATS.map(([id, label], ci) => {
+        const on = (s.faqCat || 0) === ci;
+        return {
+          label, on, tabId: "ra-faqtab-" + id,
+          pick: () => { if (!on) this.setState({ faqCat: ci, faq: -1, faqFade: true }, () => { clearTimeout(this._ff); this._ff = setTimeout(() => this.setState({ faqFade: false }), 30); }); },
+          style: "position: relative; overflow: hidden; min-height: 44px; padding: 0 18px; border-radius: 8px; font-family: var(--f); font-size: 15.5px; font-weight: 500; white-space: nowrap; cursor: pointer; transition: color 400ms ease, border-color 400ms ease; border: 1.5px solid " + (on ? "var(--navy)" : "var(--line)") + "; background: transparent; color: " + (on ? "#fff" : "var(--ink-2)") + ";",
+          fill: "position: absolute; inset: 0; z-index: 0; background: var(--navy); transition: transform 450ms cubic-bezier(.6,-.28,.735,.045); transform: translateY(" + (on ? "0%" : "101%") + ");"
+        };
+      }),
+      faqTabAtivo: "ra-faqtab-" + FAQ_CATS[s.faqCat || 0][0],
+      faqPanel: "display: flex; flex-direction: column; gap: 12px; transition: opacity 380ms ease, transform 380ms cubic-bezier(.2,.7,.3,1); opacity: " + (s.faqFade ? "0" : "1") + "; transform: translateY(" + (s.faqFade ? "14px" : "0") + ");",
+      faqs: FAQ_CATS[s.faqCat || 0][2].map(([q, a], i) => {
+        const open = s.faq === i;
+        return {
+          q, a, open, btnId: "ra-faq-b" + i, bodyId: "ra-faq-r" + i,
+          toggle: () => this.setState({ faq: open ? -1 : i }),
+          wrap: "border-radius: 14px; border: 1px solid " + (open ? "var(--navy)" : "var(--line)") + "; background: " + (open ? "var(--navy)" : "#fff") + "; box-shadow: " + (open ? "0 18px 36px -20px rgba(6,32,63,.55)" : "none") + "; transition: background 240ms ease, border-color 240ms ease;",
+          btn: "width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 20px 22px; min-height: 64px; background: none; border: 0; cursor: pointer; text-align: left; font-family: var(--f); font-size: clamp(1.06rem, 1.4vw, 1.18rem); font-weight: 500; letter-spacing: -0.02em; transition: color 200ms ease; color: " + (open ? "#fff" : "var(--ink-2)") + ";",
+          ans: "margin: 0; padding: 0 22px 22px; font-size: 1.04rem; line-height: 1.6; max-width: 62ch; color: " + (open ? "rgba(255,255,255,.86)" : "var(--ink-2)") + ";",
+          iconStyle: "font-size: 26px; font-weight: 400; line-height: 1; flex: none; color: " + (open ? "var(--orange)" : "var(--orange-display)") + "; transform: rotate(" + (open ? "45deg" : "0deg") + "); transition: transform 200ms ease;",
+          bodyStyle: "display: grid; grid-template-rows: " + (open ? "1fr" : "0fr") + "; transition: grid-template-rows 300ms ease-in-out;" + (open ? "" : " visibility: hidden;")
+        };
+      }),
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<sc-if value="{{ aberto }}" hint-placeholder-val="{{ false }}">
+  <div style="{{ backdrop }}" onClick="{{ fecharFundo }}">
+    <div role="dialog" aria-modal="true" aria-labelledby="ra-pop-titulo" ref="{{ caixaRef }}" onKeyDown="{{ teclas }}" style="{{ caixa }}">
+      <div style="position: relative; background: #0A2E5D; color: #fff; padding: clamp(28px, 4vw, 40px) clamp(22px, 4vw, 48px) clamp(24px, 3vw, 30px); font-family: 'General Sans', system-ui, sans-serif; text-align: center; display: flex; flex-direction: column; align-items: center;">
+        <button type="button" onClick="{{ fechar }}" aria-label="Fechar" style="position: absolute; top: 14px; right: 14px; width: 44px; height: 44px; border-radius: 50%; border: 1px solid rgba(255,255,255,.28); background: rgba(255,255,255,.06); color: #fff; font-size: 22px; line-height: 1; cursor: pointer; font-family: inherit;" style-hover="background: rgba(255,255,255,.16);">×</button>
+        <span style="display: inline-flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 600; color: #FF9433;"><span aria-hidden="true" style="width: 8px; height: 8px; border-radius: 50%; background: #F57C00; box-shadow: 0 0 0 5px rgba(245,124,0,.2);"></span>{{ selo }}</span>
+        <h2 id="ra-pop-titulo" style="margin: 12px auto 10px; font-size: clamp(1.7rem, 3.4vw, 2.3rem); font-weight: 600; line-height: 1.05; letter-spacing: -0.04em; max-width: 18ch; text-wrap: balance;">{{ titulo }}</h2>
+        <p style="margin: 0; font-size: 1.04rem; line-height: 1.55; color: rgba(255,255,255,.86); max-width: 42ch; margin-left: auto; margin-right: auto; text-wrap: pretty;">{{ sub }}</p>
+      </div>
+      <div style="padding: clamp(16px, 3vw, 24px); background: #F7F6F2;">
+        <dc-import name="LeadForm" prefixo="pop" origem="{{ origem }}" on-enviado="{{ enviado }}" hint-size="100%,640px"></dc-import>
+      </div>
+    </div>
+  </div>
+</sc-if>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1280,&quot;height&quot;:900}}">
+// Popup com formulário. Abre (1) ao clicar em qualquer "Explicar minha demanda" e (2) por intenção de saída, uma vez por sessão.
+// Desktop: o cursor sai pelo topo da janela. Mobile/touch: rolagem rápida para cima depois de ler parte da página.
+// Não abre: antes de 8s na página, na página de contato, se o visitante já começou/enviou o formulário, ou se já foi fechado.
+const CHAVE = "ra_popup_saida";
+class Component extends DCLogic {
+  state = { modo: "saida", visivel: false, aberto: false, w: typeof window === "undefined" ? 1280 : window.innerWidth };
+  caixaRef = React.createRef();
+
+  podeAbrir() {
+    try {
+      if (sessionStorage.getItem(CHAVE) || sessionStorage.getItem("ra_lead_ok") || sessionStorage.getItem("ra_form_iniciado")) return false;
+    } catch (e) {}
+    if (/contato/.test(location.pathname)) return false;
+    if (Date.now() - this.t0 < 8000) return false;
+    const f = document.getElementById("formulario");
+    if (f) { const r = f.getBoundingClientRect(); if (r.top < innerHeight && r.bottom > 0) return false; }
+    return !this.state.aberto;
+  }
+
+  abrir(motivo, forcar) {
+    if (forcar) { if (this.state.aberto) return; }
+    else { if (!this.podeAbrir()) return; try { sessionStorage.setItem(CHAVE, "1"); } catch (e) {} }
+    this.setState({ modo: forcar ? "cta" : "saida" });
+    this.foco = document.activeElement;
+    clearTimeout(this._fx);
+    this.setState({ aberto: true, visivel: false }, () => requestAnimationFrame(() => requestAnimationFrame(() => this.setState({ visivel: true }))));
+    document.body.style.overflow = "hidden";
+    if (window.raTrack) window.raTrack("popup_saida_aberto", { motivo });
+    setTimeout(() => { const el = document.getElementById("pop-desc"); if (el) el.focus(); }, 80);
+  }
+
+  fecharPopup = () => {
+    const reduz = matchMedia("(prefers-reduced-motion: reduce)").matches;
+    this.setState({ visivel: false });
+    clearTimeout(this._fx);
+    this._fx = setTimeout(() => this.setState({ aberto: false }), reduz ? 0 : 280);
+    document.body.style.overflow = "";
+    if (this.foco && this.foco.focus) this.foco.focus();
+  };
+
+  componentDidMount() {
+    this.t0 = Date.now();
+    // Todos os botões "Explicar minha demanda" abrem o popup (o href continua válido sem JS).
+    this.onClick = (e) => {
+      if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey) return;
+      const path = e.composedPath ? e.composedPath() : [e.target];
+      const a = path.find((n) => n && n.tagName === "A");
+      if (!a) return;
+      if (this.caixaRef.current && this.caixaRef.current.contains(a)) return;
+      const txt = (a.textContent || "").replace(/\s+/g, " ").trim();
+      if (!/^(Explicar minha demanda|Solicitar análise da demanda|Consultar minha cidade)/.test(txt) && !a.hasAttribute("data-popup")) return;
+      e.preventDefault();
+      this.origemCta = a.getAttribute("data-track") || "cta";
+      this.abrir("botao", true);
+    };
+    document.addEventListener("click", this.onClick, true);
+    this.onOut = (e) => { if (!e.relatedTarget && e.clientY <= 4) this.abrir("cursor"); };
+    document.addEventListener("mouseout", this.onOut);
+    this.lastY = scrollY; this.lastT = performance.now();
+    this.onScroll = () => {
+      const y = scrollY, t = performance.now(), dy = y - this.lastY, dt = t - this.lastT;
+      const lido = y / Math.max(1, document.documentElement.scrollHeight - innerHeight);
+      if (matchMedia("(pointer: coarse)").matches && dy < -140 && dt < 250 && lido > 0.3) this.abrir("rolagem");
+      this.lastY = y; this.lastT = t;
+    };
+    window.addEventListener("scroll", this.onScroll, { passive: true });
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener("mouseout", this.onOut);
+    document.removeEventListener("click", this.onClick, true);
+    window.removeEventListener("scroll", this.onScroll);
+    document.body.style.overflow = "";
+    clearTimeout(this._fx);
+  }
+
+  renderVals() {
+    const narrow = this.state.w < 640, v = this.state.visivel;
+    const ease = "cubic-bezier(.22,1,.36,1)";
+    return {
+      aberto: this.state.aberto,
+      selo: this.state.modo === "cta" ? "Explicar minha demanda" : "Antes de sair",
+      titulo: this.state.modo === "cta" ? "Conte o que precisa ser resolvido." : "Tem algo para resolver no Pará?",
+      sub: this.state.modo === "cta" ? "Duas etapas curtas: primeiro a demanda, depois como falar com você. Retornamos com o escopo, sem compromisso." : "Conte em poucas linhas. A gente avalia e retorna com o escopo, sem compromisso.",
+      origem: this.state.modo === "cta" ? "popup-" + (this.origemCta || "cta") : "popup-saida",
+      caixaRef: this.caixaRef,
+      backdrop: "position: fixed; inset: 0; z-index: 90; background: rgba(6,32,63," + (v ? ".62" : "0") + "); backdrop-filter: blur(" + (v ? "4px" : "0px") + "); -webkit-backdrop-filter: blur(" + (v ? "4px" : "0px") + "); transition: background-color 320ms ease, backdrop-filter 320ms ease; display: flex; align-items: " + (narrow ? "flex-end" : "center") + "; justify-content: center; padding: " + (narrow ? "0" : "24px") + "; box-sizing: border-box;",
+      caixa: "width: min(620px, 100%); max-height: " + (narrow ? "92svh" : "calc(100svh - 48px)") + "; overflow-y: auto; background: #F7F6F2; border-radius: " + (narrow ? "22px 22px 0 0" : "22px") + "; box-shadow: 0 40px 80px -30px rgba(0,0,0,.55); outline: none; transition: opacity 320ms " + ease + ", transform 420ms " + ease + "; opacity: " + (v ? "1" : "0") + "; transform: " + (v ? "none" : (narrow ? "translateY(40px)" : "translateY(18px) scale(.97)")) + ";",
+      fechar: this.fecharPopup,
+      fecharFundo: (e) => { if (e.target === e.currentTarget) this.fecharPopup(); },
+      teclas: (e) => {
+        if (e.key === "Escape") return this.fecharPopup();
+        if (e.key !== "Tab") return;
+        const box = this.caixaRef.current; if (!box) return;
+        const els = box.querySelectorAll('button, a[href], input, textarea, [tabindex]:not([tabindex="-1"])');
+        const vis = Array.from(els).filter((el) => el.offsetParent !== null && !el.disabled);
+        if (!vis.length) return;
+        const first = vis[0], last = vis[vis.length - 1];
+        if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+        else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+      },
+      enviado: () => { if (window.raTrack) window.raTrack("popup_saida_lead"); }
+    };
+  }
+}
+</script>
+</body>
+</html>

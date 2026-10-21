@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Substituir DOMINIO pelo domínio definitivo antes do deploy.
+Sitemap: https://DOMINIO/sitemap.xml

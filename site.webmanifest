@@ -1,0 +1,10 @@
+{
+  "name": "Resolva Aqui",
+  "short_name": "Resolva Aqui",
+  "lang": "pt-BR",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#FFFFFF",
+  "theme_color": "#0A2E5D",
+  "icons": [{ "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml" }]
+}

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<section aria-label="Mapa de Belém" style="position: relative; background: #06203F; font-family: 'General Sans', system-ui, sans-serif;">
+  <div style="position: relative; width: 100%; height: clamp(320px, 40vw, 460px); overflow: hidden;">
+    <sc-if value="{{ carregar }}" hint-placeholder-val="{{ false }}">
+      <iframe title="Mapa de Belém, Pará" src="https://www.google.com/maps?q=Bel%C3%A9m,+PA&amp;z=13&amp;output=embed" loading="lazy" referrerPolicy="no-referrer-when-downgrade" style="position: absolute; inset: 0; width: 100%; height: 100%; border: 0; filter: grayscale(.25) contrast(1.03);"></iframe>
+    </sc-if>
+    <sc-if value="{{ naoCarregado }}" hint-placeholder-val="{{ true }}">
+      <div style="position: absolute; inset: 0; background: linear-gradient(135deg, #0A2E5D, #06203F);"></div>
+    </sc-if>
+    <div style="position: absolute; left: clamp(16px, 4vw, 48px); bottom: clamp(16px, 3vw, 32px); background: #FFFFFF; color: #0A2E5D; padding: 16px 20px; border-radius: 14px; display: flex; flex-wrap: wrap; align-items: center; gap: 12px 14px; box-shadow: 0 16px 32px -16px rgba(6,32,63,.45); max-width: calc(100% - 32px); box-sizing: border-box;">
+      <span aria-hidden="true" style="width: 12px; height: 12px; border-radius: 50%; background: #F57C00; box-shadow: 0 0 0 6px rgba(245,124,0,.2); flex: none;"></span>
+      <span style="display: flex; flex-direction: column; gap: 2px;">
+        <strong style="font-size: 16px; font-weight: 600;">Belém, Pará</strong>
+        <span style="font-size: 14px; color: #5B6570;">Base do atendimento presencial</span>
+      </span>
+      <a href="https://www.google.com/maps/search/?api=1&amp;query=Bel%C3%A9m%2C+PA" target="_blank" rel="noopener" style="margin-left: auto; display: inline-flex; align-items: center; min-height: 44px; padding: 0 14px; border-radius: 8px; border: 1.5px solid #E2E0D9; font-size: 14.5px; font-weight: 600; color: #0A2E5D; text-decoration: none; white-space: nowrap;" style-hover="border-color: #0A2E5D;">Abrir no Maps</a>
+    </div>
+  </div>
+</section>
+<dc-import name="ExitPopup" hint-size="0px,0px"></dc-import>
+<x-import component-from-global-scope="ra-tear-footer" from="./ra-tear-footer.js" style="display: block; width: 100%;" hint-size="100%,760px"></x-import>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1280,&quot;height&quot;:1240}}">
+// O iframe do Google Maps só carrega quando o mapa chega perto da tela (não pesa no carregamento inicial).
+class Component extends DCLogic {
+  state = { carregar: false };
+  componentDidMount() {
+    const el = document.querySelector('[aria-label="Mapa de Belém"]');
+    if (!el || typeof IntersectionObserver === "undefined") return this.setState({ carregar: true });
+    this.io = new IntersectionObserver((es) => { if (es.some((e) => e.isIntersecting)) { this.setState({ carregar: true }); this.io.disconnect(); } }, { rootMargin: "400px" });
+    this.io.observe(el);
+  }
+  componentWillUnmount() { if (this.io) this.io.disconnect(); }
+  renderVals() { return { carregar: this.state.carregar, naoCarregado: !this.state.carregar }; }
+}
+</script>
+</body>
+</html>
